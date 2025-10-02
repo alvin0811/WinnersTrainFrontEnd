@@ -37,12 +37,15 @@ class SearchResilienceTrainer extends StatelessWidget {
                     hintText: 'Search...',
                     hintColor: Color(0xff9BA8BB),
                     hintTextSize: 14.sp,
-                    suffixIcon: Image.asset(
-                      AppAssets.icon.filterIcon,
-                      color: context.onPrimaryContainer,
-                    ).inkWell(onTap: () {
-                      filterSearchBottomSheet(context,false);
-                    })),
+                    suffixIcon: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: SvgPicture.asset(
+                        AppAssets.icon.filterIcon,
+                        color: context.onPrimaryContainer,
+                      ).inkWell(onTap: () {
+                        filterSearchBottomSheet(context,false);
+                      }),
+                    )),
                 25.h.verticalSpace,
                 ListView.builder(
                     padding: EdgeInsets.zero,

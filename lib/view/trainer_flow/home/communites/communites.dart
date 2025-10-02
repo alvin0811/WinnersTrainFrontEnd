@@ -57,9 +57,9 @@ class Communites extends StatelessWidget {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(2.0),
+                      padding: const EdgeInsets.only(left: 3.0),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: List.generate(
                           controller.reportFilters.length,
                           (index) {
@@ -69,7 +69,7 @@ class Communites extends StatelessWidget {
                               },
                               child: Container(
                                 width: 128.w,
-                                height: 42.h,
+                                height: 46.h,
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     begin: Alignment.topCenter,

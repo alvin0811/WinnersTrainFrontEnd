@@ -1,63 +1,120 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'package:winner_trains_app/view/widgets/buttons/custom_button.dart';
-import 'package:winner_trains_app/view/widgets/trainer/custominputfiled.dart';
-import 'package:winner_trains_app/view/widgets/trainer/auth_widgets/thank_you)dialog.dart';
-import 'package:winner_trains_app/view/widgets/trainer/help_and_feedback_addimage_card.dart';
-import 'package:winner_trains_app/view/widgets/trainer/main_home_app_bar.dart';
-import 'package:winner_trains_app/viewModel/trainer_view_models/trainer_main_home_view_model.dart';
-import 'package:winner_trains_app/utils/app_colors.dart';
-import 'package:winner_trains_app/utils/routes/route_name.dart';
+import 'dart:io';
+
+import 'package:dotted_border/dotted_border.dart';
+import 'package:winner_trains_app/utils/basic_exports.dart';
+//import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
+import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
+import 'package:winner_trains_app/view/widgets/custom_background.dart';
+import 'package:winner_trains_app/view/widgets/custom_button.dart';
+import 'package:winner_trains_app/view/widgets/custom_textfield.dart';
+import 'package:winner_trains_app/view/widgets/image_cards_widget.dart';
+import 'package:winner_trains_app/viewModel/user_view_models/help_and_feedback_view_model.dart';
 
 class FeedbackForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final bottomindex = Provider.of<TrainerMainHomeViewModel>(context);
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/bg.png"),
-          fit: BoxFit.cover,
-        ),
-      ),
+    final viewModel = Provider.of<HelpAndFeedbackViewModel>(context);
+    return CustomBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: MainHomeAppBar(title: "Help & Feedback"),
+        appBar: CustomAppBar(
+          title: "Help & Feedback",
+          iconColor: context.onPrimary,
+          titleColor: Colors.black,
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Subject Input Field
+                CustomTextfield(
+                  headerText: 'Subject',
+                  customPadding: 12.w,
+                  hintText: 'Add Subject',
+                ),
+                15.verticalSpace,
 
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-          child: Column(
-            children: [
-              20.verticalSpace,
-              CustomInputWidget(
-                Header: "Subject",
-                hint: "Add Subject",
-                label: "Add Subject",
-              ),
-              SizedBox(height: 20.h),
-              CustomInputWidget(
-                maxline: 6,
-                Header: "Description",
-                hint: "Type here...",
-                label: "Type here...",
-              ),
-              20.verticalSpace,
+                // Message Input Field
+                CustomTextfield(
+                  customPadding: 12.w,
+                  headerText: 'Description',
+                  //  borderColor: Colors.grey.withOpacity(0.7),
+                  hintText: 'Type here...',
+                  height: 0.19.sh,
+                  maxLines: 6,
+                  radius: BorderRadius.circular(15.r),
+                ),
+                10.verticalSpace,
 
-              HelpAndFeedbackAddimageCard(),
-              SizedBox(height: 20.h),
-            ],
+                Wrap(
+                  spacing: 10.w,
+                  runSpacing: 10.h,
+                  children: [
+                    for (File img in viewModel.images) imageCards(context, img),
+                    InkWell(
+                      onTap: () async {
+                        if (viewModel.images.length >= 5) {
+                          Utils.errorSnack(
+                              context: context,
+                              message: "You can't add more than 5 images.");
+                          return;
+                        }
+                        await viewModel.pickImage();
+                      },
+                      child: DottedBorder(
+                      strokeWidth: 0.3,
+                      radius: Radius.circular(15.r),
+                      borderType: BorderType.RRect,
+                      
+                        // padding: EdgeInsets.all(6),
+                        strokeCap: StrokeCap.square,
+                        child: Container(
+                          height: 122.h,
+                          width: 122.w,
+                          // width: double.infinity,
+                          // height: 170.h,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12.r)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                AppAssets.icon.addMoreIcon,
+                              
+                                height: 30.h,
+                                width: 30.w,
+                              ),
+                              Text(
+                                "Add More",
+                                style: context.bodyMedium.copyWith(
+                               color: const Color(0xff4C5157),
+                               fontWeight: FontWeight.w400
+                                ),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                20.verticalSpace,
+              ],
+            ),
           ),
         ),
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-          child: CustomButton(
-            buttonText: "Submit",
-            onPressed: () {
-              Navigator.pushNamed(context, RoutesName.trainerfeedbacksubmitted);
-            },
-          ),
-        ),
+        bottomNavigationBar: CustomButton(
+          height: 52.h,
+          width: 400.w,
+          text: "Submit",
+        ).inkWell(onTap: () {
+          Navigator.pushNamed(context, RoutesName.successFeedBack);
+        }).paddingSymmetric(horizontal: 20.w, vertical: 20.h),
       ),
     );
   }

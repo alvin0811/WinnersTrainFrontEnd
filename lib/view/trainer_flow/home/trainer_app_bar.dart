@@ -38,7 +38,7 @@ class TrainerAppBar extends StatelessWidget implements PreferredSizeWidget {
         width: 430.w,
         height: 124.h,
         decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
           color: AppColors.backgroundColor,
           image: DecorationImage(
             image: AssetImage("assets/images/homeappbarbg.png"),

@@ -1,6 +1,8 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/user_resilience/home/Trainer/booking_card.dart';
+import 'package:winner_trains_app/view/user_resilience/home/Trainer/success_schedule_appointment.dart';
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
@@ -20,9 +22,14 @@ class BookingDetails extends StatelessWidget {
               children: [
                 const BookingCard(),
                 const Spacer(),
-                const CustomButton(text: 'Proceed').inkWell(
-                    onTap: () => Navigator.pushNamed(
-                        context, RoutesName.paymentMethod))
+                const CustomButton(text: 'Proceed').inkWell(onTap: () {
+                  G().paymentConfirmation =
+                      PaymentConfirmation.fromappointments;
+                  Navigator.pushNamed(
+                    context,
+                    RoutesName.paymentMethod,
+                  );
+                })
               ],
             ).paddingSymmetric(horizontal: 20.w, vertical: 20.h)));
   }

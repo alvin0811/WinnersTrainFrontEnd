@@ -108,7 +108,7 @@ class CompetenciesViewModel extends ChangeNotifier {
             "Understand how your interpretation of an event—not the event itself—shapes your feelings and behavior. This clarity fuels smarter reactions."),
     CompetenciesModel(
         nextRoute: '',
-        icon: "assets/images/break.png",
+        icon: "assets/images/loop.png",
         title: "Break Mental Loops",
         subtitle: "Repetitive thoughts that drain your energy.",
         description:
@@ -171,7 +171,7 @@ class CompetenciesViewModel extends ChangeNotifier {
             "Words have power. Use them to build up, connect, and grow.This tool guides you to communicate with purpose and strength."),
     CompetenciesModel(
         nextRoute: '',
-        icon: "assets/images/lift.png",
+        icon: "assets/images/lifting_others.png",
         title: "Lift Others Up",
         subtitle: "Build Resilience Through Connection",
         description:

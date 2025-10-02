@@ -1,6 +1,7 @@
 import 'package:winner_trains_app/utils/app_enums.dart';
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
 import 'package:winner_trains_app/view/widgets/custom_textfield.dart';

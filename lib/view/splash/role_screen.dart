@@ -5,6 +5,7 @@ import 'package:winner_trains_app/utils/extensions/custom_border.dart';
 import 'package:winner_trains_app/utils/extensions/custom_border_radius.dart';
 import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/widgets/custom_agreement_text.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
 import 'package:winner_trains_app/view/widgets/trainer/auth_widgets/custom_auth_appbar.dart';

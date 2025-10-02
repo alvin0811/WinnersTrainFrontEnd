@@ -33,8 +33,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
             children: [
               CustomTabbar(
                   items: viewModel.items,
-                  height: 42.h,
-                  width: 126.w,
+                  height: 44.h,
+                  width: 128.w,
                   val: viewModel.selectedItem),
               25.h.verticalSpace,
               ValueListenableBuilder(

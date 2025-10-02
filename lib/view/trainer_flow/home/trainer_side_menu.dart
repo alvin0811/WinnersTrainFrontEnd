@@ -80,14 +80,14 @@ class TrainerSideMenu extends StatelessWidget {
                   'Alexandar Benjamin',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style:AppTextStyle.heading(fontWeight: FontWeight.w400,)
+                   style: TextStyle(fontSize: 20.sp, color: context.onPrimary),
                 ),
               ),
               5.h.verticalSpace,
               Center(
                 child: Text(
                   'alexanderbenjamin@domain.com',
-                style: AppTextStyle.body(),
+                 style: TextStyle(fontSize: 14.sp, color: context.onPrimary),
                 ),
               ),
               40.h.verticalSpace,

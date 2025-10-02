@@ -1,4 +1,5 @@
 import 'package:winner_trains_app/utils/app_enums.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/trainer_flow/auth/profile_verification.dart';
 import 'package:winner_trains_app/view/trainer_flow/auth/reset_password.dart';
 import 'package:winner_trains_app/view/trainer_flow/auth/verification_Code.dart';
@@ -166,7 +167,7 @@ import 'package:winner_trains_app/view/trainer_flow/home/subscription/my_live_se
 import 'package:winner_trains_app/view/trainer_flow/home/subscription/set_filter_screen.dart';
 import 'package:winner_trains_app/view/trainer_flow/home/subscription/subcription_plans.dart';
 import 'package:winner_trains_app/view/trainer_flow/home/subscription/renew_subcription.dart';
-import 'package:winner_trains_app/view/trainer_flow/home/user_main.dart';
+import 'package:winner_trains_app/view/trainer_flow/home/trainer_home_view.dart';
 import 'package:winner_trains_app/view/user_resilience/userProfile/edit_profile.dart';
 import 'package:winner_trains_app/view/user_resilience/userProfile/profile_details.dart';
 
@@ -389,7 +390,8 @@ class Routes {
       case RoutesName.newCard:
         return pushTo(const AddNewCard());
       case RoutesName.successBookingSchedule:
-        return pushTo(const SuccessScheduleAppointment());
+     
+        return pushTo( SuccessScheduleAppointment());
       case RoutesName.successRescheduleAppointment:
         return pushTo(const SuccessRescheduleAppointment());
       case RoutesName.successPersonalSurvey:
@@ -466,7 +468,7 @@ class Routes {
         return MaterialPageRoute(
             builder: (_) => const TrainerProfileVerification());
       case RoutesName.homemain:
-        return MaterialPageRoute(builder: (_) => const HomeMain());
+        return MaterialPageRoute(builder: (_) => const TrainerHomeView());
       case RoutesName.communitydetail:
         return MaterialPageRoute(builder: (_) => const CommunityDetail());
       case RoutesName.communitesjoined:
