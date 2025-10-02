@@ -1,0 +1,103 @@
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:winner_trains_app/utils/basic_exports.dart';
+import 'package:winner_trains_app/utils/extensions/custom_border.dart';
+import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
+import 'package:winner_trains_app/view/widgets/custom_profile_image.dart';
+
+class ReviewCard extends StatelessWidget {
+  final String userName;
+  final String ratings;
+  final String imageUrl;
+  final String reviews;
+  final String time;
+  const ReviewCard(
+      {super.key,
+      required this.userName,
+      required this.imageUrl,
+      required this.ratings,
+      required this.reviews,
+      required this.time});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      // height: 170.h,
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      clipBehavior: Clip.none,
+      decoration: BoxDecoration(
+          color: context.primary,
+          borderRadius: BorderRadius.circular(10.r),
+          border: CustomBorder.thin(color: context.outline),
+          boxShadow: CustomShadows.customShadow),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              ProfilePicture(
+                imageUrl: imageUrl,
+                width: 60.w,
+                height: 60.h,
+              ),
+              15.w.horizontalSpace,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        userName,
+                        style: context.titleMedium,
+                      ),
+                      6.w.horizontalSpace,
+                      Text(time,
+                          style: context.bodySmall
+                              .copyWith(fontWeight: FontWeight.w300))
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(ratings,
+                          style: context.titleMedium
+                              .copyWith(fontWeight: FontWeight.w300)),
+                      6.w.horizontalSpace,
+                      SizedBox(
+                        height: 19.h,
+                        width: 127.w,
+                        child: ListView.builder(
+                            padding: EdgeInsets.zero,
+                            physics: AlwaysScrollableScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 5,
+                            itemBuilder: (c, i) => i == 4
+                                ? SvgPicture.asset(
+                                    AppAssets.icon.halfStarIcon,
+                                    width: 19.w,
+                                    height: 19.h,
+                                  )
+                                : Image.asset(
+                                    AppAssets.icon.starIcon,
+                                    width: 19.w,
+                                    height: 19.h,
+                                  )),
+                      )
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
+          10.h.verticalSpace,
+          Text(
+            reviews,
+            style: TextStyle(
+                color: Colors.black.withOpacity(0.5),
+                fontWeight: FontWeight.w400,
+                fontSize: 16.sp),
+          )
+        ],
+      ),
+    );
+  }
+}

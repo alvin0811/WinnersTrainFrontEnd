@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3736" data-name="Rectangle 3736" width="30" height="30" transform="translate(-10797 -7197)" fill="#e70000" stroke="#48576e" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_13091" data-name="Mask Group 13091" transform="translate(10797 7197)" clip-path="url(#clip-path)">
+    <path id="Icon_metro-apple" data-name="Icon metro-apple" d="M23.732,16.223a6.087,6.087,0,0,1,2.9-5.122,6.283,6.283,0,0,0-4.919-2.666c-2.1-.212-4.088,1.233-5.151,1.233s-2.7-1.2-4.439-1.171A6.582,6.582,0,0,0,6.562,11.87c-2.373,4.117-.608,10.216,1.7,13.555,1.13,1.634,2.477,3.47,4.246,3.4,1.7-.068,2.348-1.1,4.407-1.1s2.639,1.1,4.441,1.069c1.833-.034,2.995-1.666,4.117-3.3a14.829,14.829,0,0,0,1.863-3.826,5.942,5.942,0,0,1-3.61-5.442Zm-3.387-10a5.929,5.929,0,0,0,1.4-4.3,6.031,6.031,0,0,0-3.962,2.037,5.64,5.64,0,0,0-1.429,4.163A4.989,4.989,0,0,0,20.344,6.224Z" transform="translate(-10798.389 -7197.379)"/>
+  </g>
+</svg>

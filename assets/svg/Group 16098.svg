@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="70" viewBox="0 0 70 70">
+  <defs>
+    <filter id="Rectangle_3689" x="0" y="0" width="70" height="70" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#223850" flood-opacity="0.059"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4474" data-name="Rectangle 4474" width="24" height="24" transform="translate(1163 -42)" fill="#fafafb" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_16098" data-name="Group 16098" transform="translate(-5 -33)">
+    <g transform="matrix(1, 0, 0, 1, 5, 33)" filter="url(#Rectangle_3689)">
+      <g id="Rectangle_3689-2" data-name="Rectangle 3689" transform="translate(15 11)" fill="#008b88" stroke="rgba(18,19,20,0.02)" stroke-width="1">
+        <rect width="40" height="40" rx="7" stroke="none"/>
+        <rect x="0.5" y="0.5" width="39" height="39" rx="6.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Mask_Group_14110" data-name="Mask Group 14110" transform="translate(-1135 94)" clip-path="url(#clip-path)">
+      <path id="Icon_fa-solid-camera-rotate" data-name="Icon fa-solid-camera-rotate" d="M11.109,3.7l-.461,1.383H7.337A2.84,2.84,0,0,0,4.5,7.924V19.272a2.84,2.84,0,0,0,2.837,2.837H24.359A2.84,2.84,0,0,0,27.2,19.272V7.924a2.84,2.84,0,0,0-2.837-2.837H21.048L20.587,3.7A2.122,2.122,0,0,0,18.57,2.25H13.126A2.122,2.122,0,0,0,11.109,3.7ZM21.522,12.18a.711.711,0,0,1-.709.709h-3.4a.5.5,0,0,1-.355-.856l1.051-1.051A3.211,3.211,0,0,0,13.574,11l-.873.873a1.063,1.063,0,0,1-1.5-1.5l.873-.873a5.34,5.34,0,0,1,7.545-.018l1.051-1.051a.5.5,0,0,1,.856.355ZM10.174,15.017a.711.711,0,0,1,.709-.709h3.4a.5.5,0,0,1,.355.856l-1.051,1.051a3.211,3.211,0,0,0,4.535-.013L19,15.327a1.063,1.063,0,1,1,1.5,1.5l-.873.873a5.34,5.34,0,0,1-7.545.018L11.03,18.771a.5.5,0,0,1-.856-.355Z" transform="translate(1159.152 -42.18)" fill="#fafafb"/>
+    </g>
+  </g>
+</svg>

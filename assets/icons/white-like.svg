@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4257" data-name="Rectangle 4257" width="24" height="24" transform="translate(974 3252)" fill="none" stroke="#fff" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_13113" data-name="Mask Group 13113" transform="translate(-974 -3252)" clip-path="url(#clip-path)">
+    <g id="Icon_ionic-md-thumbs-up" data-name="Icon ionic-md-thumbs-up" transform="translate(975.013 3253.856)">
+      <path id="Path_18" data-name="Path 18" d="M13.046,24.789h8.131a1.751,1.751,0,0,0,1.617-1.236l2.7-7.154a2.234,2.234,0,0,0,.123-.74V13.619c0-1.115-.8-2.356-1.787-2.356H18.194l.851-4.306.028-.317a1.629,1.629,0,0,0-.392-1.073L17.726,4.5,11.77,11.226a2.164,2.164,0,0,0-.52,1.432V22.8A1.893,1.893,0,0,0,13.046,24.789Z" transform="translate(-3.642 -4.5)" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <path id="Path_19" data-name="Path 19" d="M3.375,15.75H7.723V30.967H3.375Z" transform="translate(-3.375 -10.678)" fill="none" stroke="#fff" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
