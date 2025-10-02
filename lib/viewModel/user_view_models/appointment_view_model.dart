@@ -11,3 +11,7 @@ class AppointmentViewModel extends ChangeNotifier {
 
  
 }
+
+// AppointmentContext on BuildContext{
+// AppointmentViewModel get appointmentVM => read.<AppointmentViewModel>
+// }
