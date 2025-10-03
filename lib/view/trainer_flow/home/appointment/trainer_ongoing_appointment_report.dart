@@ -55,7 +55,8 @@ class TrainerOngoingAppointmentReport extends StatelessWidget {
                 child: CustomButton(
                   buttonText: "Go Back",
                   onPressed: () {
-                    Navigator.pushNamed(context, RoutesName.ongoingappointemntdetails);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                 ),
               ),

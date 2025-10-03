@@ -6,13 +6,14 @@ import 'package:winner_trains_app/view/widgets/custom_profile_image.dart';
 class AppointmentDetailsCard extends StatelessWidget {
   final String? docName;
   final String? time;
+  final String? city;
   final String? imageUrl;
   final Widget? button;
   final String? date;
   final String? additionalInformation;
   final String? consultingFee;
   final Widget? appointmentButton;
-  
+
   const AppointmentDetailsCard({
     super.key,
     this.docName,
@@ -22,8 +23,7 @@ class AppointmentDetailsCard extends StatelessWidget {
     this.additionalInformation,
     this.consultingFee,
     this.date,
-    this.appointmentButton,
-   
+    this.appointmentButton, this.city,
   });
 
   @override
@@ -63,7 +63,7 @@ class AppointmentDetailsCard extends StatelessWidget {
                               color: context.onPrimary),
                         ),
                         Text(
-                          time ?? 'Today , 07:00 PM',
+                        city ?? 'Today , 07:00 PM',
                           style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
@@ -81,7 +81,7 @@ class AppointmentDetailsCard extends StatelessWidget {
                           width: 98.w,
                           fontsize: 14.sp,
                           fontWeight: FontWeight.w400,
-                          height: 33.h,
+                          height: 38.h,
                         ),
                   ],
                 ),
@@ -152,8 +152,7 @@ class AppointmentDetailsCard extends StatelessWidget {
                   'Lorem ipsum dolor sit amet consectetur adipiscing elit odio, mattis quam tortor taciti aenean luctus nullam enim, dui praesent ad dapibus tempus natoque a. Rhoncus praesent massa torquent malesuada maecenas arcu curae,.',
               style: context.titleMedium.copyWith(
                   color: context.onPrimaryContainer.withOpacity(0.5))),
-          if (appointmentButton != null)
-           appointmentButton!
+          if (appointmentButton != null) appointmentButton!
         ],
       ),
     );

@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:winner_trains_app/models/card_model.dart';
 
 class CommunitesCardViewModel extends ChangeNotifier {
-  int reportSelected = 0;
-  List<String> reportFilters = ["Discover", "Joined", "Your"];
+  List<String> items = [
+    "Discover",
+    "Joined",
+    "Your"
+  ];
+  ValueNotifier<String> selectedItem = ValueNotifier("Discover");
   List<CardDataModel> _discoverCards = [];
   List<CardDataModel> _joinedCards = [];
   List<CardDataModel> _yourCards = [];
   List<CardDataModel> get discoverCards => _discoverCards;
   List<CardDataModel> get joinedCards => _joinedCards;
   List<CardDataModel> get yourCards => _yourCards;
-  void selectReportSelected(int index) {
-    reportSelected = index;
+  void selectReportSelected(String index) {
+    selectedItem.value = index;
     notifyListeners();
   }
 

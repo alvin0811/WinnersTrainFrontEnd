@@ -75,11 +75,12 @@ class UserDrawer extends StatelessWidget {
                   drawerItem(
                           AppAssets.icon.drawerAppointmentIcon, "Appointments")
                       .inkWell(onTap: () {
-                    value.index = 0;
+                  
                     Navigator.pop(context);
                     value.index = 3;
                   }),
                   5.h.verticalSpace,
+                  
                   drawerItem(
                           AppAssets.icon.drawerCompetencyIcon, "Competencies")
                       .inkWell(onTap: () {

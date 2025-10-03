@@ -263,7 +263,7 @@ class Routes {
       case RoutesName.profileDetails:
         return pushTo(const UserProfileDetails());
       case RoutesName.editProfile:
-        return pushTo(const UserEditProfile());
+        return pushTo( UserEditProfile());
       case RoutesName.userHelpAndFeedBack:
         return pushTo(const UserHelpAndFeedback());
       case RoutesName.userEditPost:
@@ -508,11 +508,11 @@ class Routes {
       case RoutesName.canceldetails:
         return MaterialPageRoute(builder: (_) => const CancelDetails());
       case RoutesName.completedetails:
-        return MaterialPageRoute(builder: (_) => const CompleteDetails());
+        return MaterialPageRoute(builder: (_) => const CompletedDetails());
       case RoutesName.unattendeddetails:
         return MaterialPageRoute(builder: (_) => const UnattendedDetails());
       case RoutesName.editprofile:
-        return MaterialPageRoute(builder: (_) => const EditProfile());
+        return MaterialPageRoute(builder: (_) =>  EditProfile());
       case RoutesName.editavailability:
         return MaterialPageRoute(builder: (_) => const EditAvailability());
       case RoutesName.seeexperiencequalification:

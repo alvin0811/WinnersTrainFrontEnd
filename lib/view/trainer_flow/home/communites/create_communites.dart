@@ -86,11 +86,15 @@ class CreateCommunites extends StatelessWidget {
                       dashPattern: const [6, 8],
                       borderType: BorderType.RRect,
                       color: const Color(0xFFD0D8E3),
-                      child: Card(
-                        elevation: 0,
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
+                      child: Container(
+                          height: 175.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                           color: Colors.white,
+                        ),
+                       
+                       
+                      
                         child: Center(
                           child: ValueListenableBuilder<File?>(
                             valueListenable: selectedImage,

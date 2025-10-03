@@ -113,7 +113,7 @@ class FeedbackForm extends StatelessWidget {
           width: 400.w,
           text: "Submit",
         ).inkWell(onTap: () {
-          Navigator.pushNamed(context, RoutesName.successFeedBack);
+          Navigator.pushNamed(context, RoutesName.trainerfeedbacksubmitted);
         }).paddingSymmetric(horizontal: 20.w, vertical: 20.h),
       ),
     );

@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:winner_trains_app/resources/app_assets.dart';
+import 'package:winner_trains_app/resources/extensions/context_extension.dart';
+import 'package:winner_trains_app/resources/theme/color_scheme.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
+import 'package:winner_trains_app/utils/custom_divider.dart';
+import 'package:winner_trains_app/view/user_resilience/home/feed/delete_dialog_post.dart';
+import 'package:winner_trains_app/view/widgets/custom_bottomsheet.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custom_socail_bottom_sheet.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custom_dailog_box.dart';
 import 'package:winner_trains_app/models/home_card_model.dart';
@@ -884,7 +890,7 @@ class HomeCard extends StatelessWidget {
             gradient: AppColors.bottomsheetGradient,
           ),
           child: FractionallySizedBox(
-            heightFactor: 0.25.h,
+            heightFactor: 0.27,
             child: Stack(
               clipBehavior: Clip.none,
               children: [
@@ -898,64 +904,94 @@ class HomeCard extends StatelessWidget {
                       item.isMyPost
                           ? Column(
                               children: [
-                                buildOptionTile(
-                                  context,
-                                  "assets/svg/editpost.svg",
-                                  "Edit Post",
-                                  () {
-                                    Navigator.pop(context);
-                                    Navigator.pushNamed(
-                                        context, RoutesName.editpost);
-                                  },
-                                ),
-                                Divider(color: const Color(0xffE0E7F0)),
-                                buildOptionTile(
-                                  context,
-                                  "assets/svg/Mask Group 13115 (5).svg",
-                                  "Delete Post",
-                                  () {
-                                    showCustomDialog(
-                                      context: context,
-                                      iconPath:
-                                          "assets/svg/Group 15615 (4).svg",
-                                      title: "Delete!",
-                                      description:
-                                          "Are you sure you want to delete \nthis post?",
-                                      buttonText: "No",
-                                      secondaryButtonText: "Yes, Delete",
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                        Navigator.pop(context);
-                                        print("Post Deleted");
-                                      },
-                                      onPressed1: () {
-                                        Navigator.pop(context);
-                                        Navigator.pop(context);
-                                        print("Cancelled");
-                                      },
-                                    );
-                                  },
-                                ),
+                                GestureDetector(
+                                    onTap: () {
+                                      // Navigator.pop(context);
+                                      deleteDialog(context);
+                                    },
+                                    child: ListTile(
+                                      leading: SvgPicture.asset(
+                                        AppAssets.icon.deleteIcon,
+                                        width: 24.w,
+                                        height: 24.h,
+                                        color: Colors.black.withOpacity(0.7),
+                                      ),
+                                      title: Text('Delete Post',
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color: context.onPrimary,
+                                              fontWeight: FontWeight.bold)),
+                                    )),
+                                const CustomDivider(),
+                                GestureDetector(
+                                    onTap: () {
+                                      Navigator.pushReplacementNamed(
+                                        context,
+                                        RoutesName.userEditPost,
+                                      );
+                                    },
+                                    child: ListTile(
+                                      leading: SvgPicture.asset(
+                                        AppAssets.icon.editIcon,
+                                        width: 24.w,
+                                        height: 24.h,
+                                      ),
+                                      title: Text('Edit Post',
+                                          style: TextStyle(
+                                              fontSize: 16.sp,
+                                              color: context.onPrimary,
+                                              fontWeight: FontWeight.bold)),
+                                    )),
                               ],
                             )
                           : Column(
                               children: [
-                                buildOptionTile(
-                                  context,
-                                  "assets/svg/savepost.svg",
-                                  "Save Post",
-                                  () => Navigator.pop(context),
-                                ),
-                                Divider(color: const Color(0xffE0E7F0)),
-                                buildOptionTile(
-                                  context,
-                                  "assets/svg/reportpost.svg",
-                                  "Report Post",
-                                  () {
+                                GestureDetector(
+                                  onTap: () {
                                     Navigator.pop(context);
-                                    Navigator.pushNamed(
-                                        context, RoutesName.trainerReportissue);
+                                    // Add save/unsave logic here based on `isSaved`
                                   },
+                                  child: ListTile(
+                                    leading: Image.asset(
+                                      AppAssets.icon.drawerBookmarkIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                      color: Colors.black.withOpacity(0.7),
+                                    ),
+                                    title: Text(
+                                      'Save Post',
+                                      style: TextStyle(
+                                          fontSize: 16.sp,
+                                          color: context.onPrimary,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ),
+                                CustomDivider(),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushReplacementNamed(
+                                      context,
+                                      RoutesName.userReportIssue,
+                                      arguments: {
+                                        'color': AppColor.lightScheme.secondary
+                                      },
+                                    );
+                                  },
+                                  child: ListTile(
+                                    leading: SvgPicture.asset(
+                                      AppAssets.icon.reportPostIcon,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                    title: Text(
+                                      'Report Post',
+                                      style: TextStyle(
+                                          fontSize: 16.sp,
+                                          color: context.onPrimary,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -973,18 +1009,6 @@ class HomeCard extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-
-  Widget buildOptionTile(
-      BuildContext context, String iconPath, String title, VoidCallback onTap) {
-    return GestureDetector(
-      onTap: onTap,
-      child: ListTile(
-        leading: SvgPicture.asset(iconPath),
-        title: Text(title,
-            style: AppTextStyle.button(fontWeight: FontWeight.bold)),
-      ),
     );
   }
 }

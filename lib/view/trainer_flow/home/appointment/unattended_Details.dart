@@ -1,249 +1,118 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:winner_trains_app/utils/app_text_style.dart';
-import 'package:winner_trains_app/view/widgets/trainer/main_home_app_bar.dart';
-import 'package:winner_trains_app/utils/routes/route_name.dart';
+import 'package:winner_trains_app/utils/basic_exports.dart';
+import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
+import 'package:winner_trains_app/view/user_resilience/appointments/past_appointments/appointment_details_card.dart';
+import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
+import 'package:winner_trains_app/view/widgets/custom_background.dart';
+
+import '../../../widgets/custom_button.dart';
 
 class UnattendedDetails extends StatelessWidget {
   const UnattendedDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/bg.png"),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: MainHomeAppBar(
-          title: "Appointment Details",
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            child: Column(
-              children: [
-                10.verticalSpace,
-                _buildAppointmentCard(context),
-                15.verticalSpace,
-                _buildCancelledDetailsCard(context),
-                20.verticalSpace,
-              ],
+    return CustomBackground(
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: CustomAppBar(
+              title: 'Appointment Details',
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAppointmentCard(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      elevation: 5,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
-        child: Column(
-          children: [
-            _buildUserTile(
-              context,
-              "Unattended",
-              Color(0x307386A2),
-              Color(0xFF7386A2),
-            ),
-            20.verticalSpace,
-            _buildDetailsRow("Date:", "March 27, 2024"),
-            _buildDetailsRow("Time:", "03:00 PM  To  04:00 PM"),
-            _buildFeeRow("\$100.00"),
-            15.verticalSpace,
-            _buildSectionTitle("Additional Note"),
-            10.verticalSpace,
-            _buildLongText(dummyText),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildCancelledDetailsCard(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      elevation: 5,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
-        child: Column(
-          children: [
-            _buildSectionTitle("Report Details"),
-            20.verticalSpace,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            body: Column(
               children: [
-                Text(
-                  "User",
-                  style: AppTextStyle.button(
-                    fontWeight: FontWeight.bold,
+                AppointmentDetailsCard(
+                  docName: 'Alexander Benjamin',
+                  city: 'New York, USA',
+                  time: '03:00 PM   To  04:00 PM',  
+                    imageUrl: AppAssets.images.userProfile,
+                  button: CustomButton(
+                    text: "Unattended",
+                    
+                    isGradient: false,
+                    color: Color(0xffE7ECF2),
+                    fontcolor: Color(0xff7386A2),
+                    width: 113.w,
+                    fontsize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    height: 38.h,
                   ),
                 ),
-                Text(
-                  "Alexander Benjamin",
-                  style: GoogleFonts.roboto(
-                    fontSize: 16.sp,
-                    color: const Color(0xff121314),
-                    fontWeight: FontWeight.w700,
-                    decoration: TextDecoration.underline,
+                10.h.verticalSpace,
+                Container(
+                  width: double.infinity,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
+                  clipBehavior: Clip.none,
+                  decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      boxShadow: CustomShadows.defaultShadow,
+                      border:
+                          Border.all(color: Color(0xff1213141A), width: 1.0),
+                      borderRadius: BorderRadius.circular(15.r)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Report Details ',
+                        style: context.titleMedium.copyWith(
+                            fontSize: 18.sp, fontWeight: FontWeight.w600),
+                      ),
+                      20.h.verticalSpace,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            ' User',
+                            style: context.titleMedium
+                                .copyWith(fontWeight: FontWeight.w600),
+                          ),
+                          Text('Alex Benjamin',
+                              style: context.titleMedium.copyWith(
+                                  decoration: TextDecoration.underline,
+                                  decorationThickness: 1.5,
+                                  decorationColor: context.onPrimary,
+                                  color: context.onPrimary)),
+                        ],
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        color: Color(0xffDDE2E8),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Report Date',
+                            style: context.titleMedium
+                                .copyWith(fontWeight: FontWeight.w600),
+                          ),
+                          Text('March 27, 2024',
+                              style: context.titleMedium.copyWith(
+                                  color: context.onPrimaryContainer
+                                      .withOpacity(0.5))),
+                        ],
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        color: Color(0xffDDE2E8),
+                      ),
+                      8.h.verticalSpace,
+                      Text(
+                        'Report Reason',
+                        style: context.titleMedium
+                            .copyWith(fontWeight: FontWeight.w600),
+                      ),
+                      5.h.verticalSpace,
+                      Text(
+                          textAlign: TextAlign.justify,
+                          'Lorem ipsum dolor sit amet consectetur adipiscing elit odio, mattis quam tortor taciti aenean luctus nullam enim, dui praesent ad dapibus tempus natoque a. Rhoncus praesent massa torquent malesuada maecenas arcu curae,.',
+                          style: context.titleMedium.copyWith(
+                              color:
+                                  context.onPrimaryContainer.withOpacity(0.5))),
+                    ],
                   ),
-                ),
+                )
               ],
-            ),
-            3.verticalSpace,
-            Divider(color: const Color(0xFFDDE2E8), thickness: 1),
-            _buildDetailsRow("Report Date", "June 15, 2024"),
-            15.verticalSpace,
-            _buildSectionTitle("Report Reason"),
-            10.verticalSpace,
-            _buildLongText(dummyText),
-          ],
-        ),
-      ),
-    );
+            ).paddingSymmetric(horizontal: 20.w, vertical: 20.h)));
   }
-
-  Widget _buildUserTile(
-    BuildContext context,
-    String status,
-    Color bgColor,
-    Color textColor,
-  ) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: GestureDetector(
-        onTap: () => Navigator.pushNamed(context, RoutesName.userprofile),
-        child: ClipOval(
-          child: Image.asset(
-            "assets/images/userprofile.png",
-            fit: BoxFit.cover,
-            width: 58.w,
-            height: 58.h,
-          ),
-        ),
-      ),
-      title: Text(
-        "Alexander Benjamin",
-        style: AppTextStyle.button(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      subtitle: Text(
-        "New York, USA",
-        style: AppTextStyle.button(
-          color: const Color(0xff4C5157),
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      trailing: Container(
-        width: 93.w,
-        height: 33.h,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.r),
-          color: bgColor,
-          border: Border.all(width: 1, color: Colors.black12),
-        ),
-        child: Center(
-          child: Text(
-            status,
-            style: GoogleFonts.roboto(
-              fontSize: 14.sp,
-              color: textColor,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDetailsRow(String label, String value) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [_detailText(label), _detailValue(value)],
-        ),
-        3.verticalSpace,
-        Divider(color: const Color(0xFFDDE2E8), thickness: 1),
-      ],
-    );
-  }
-
-  Widget _buildFeeRow(String amount) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            _detailText("Consulting fee:"),
-            Text(amount,
-                style: AppTextStyle.subHeading(
-                  color: const Color(0xff0066FF),
-                  fontWeight: FontWeight.bold,
-                )),
-          ],
-        ),
-        3.verticalSpace,
-        Divider(color: const Color(0xFFDDE2E8), thickness: 1),
-      ],
-    );
-  }
-
-  Widget _buildSectionTitle(String title) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Text(
-        title,
-        style: AppTextStyle.button(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLongText(String text) {
-    return Opacity(
-      opacity: 0.5,
-      child: Text(
-        maxLines: 4,
-        text,
-        style: AppTextStyle.button(
-          color: const Color(0xff4C5157),
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    );
-  }
-
-  Widget _detailText(String label) => Text(
-        label,
-        style: AppTextStyle.button(
-          fontWeight: FontWeight.bold,
-        ),
-      );
-
-  Widget _detailValue(String value) => Opacity(
-        opacity: 0.5,
-        child: Text(
-          value,
-          style: AppTextStyle.button(
-            color: const Color(0xff4C5157),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      );
 }
-
-// Dummy paragraph for demo
-const String dummyText = '''
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis quam tortor taciti aenean luctus. Rhoncus praesent massa torquent malesuada. Egestas tortor blandit vestibulum tempus dignissim cras placerat. Mollis metus sodales ligula magnis condimentum et arcu nam.
-''';

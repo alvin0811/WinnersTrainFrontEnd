@@ -5,6 +5,7 @@ import 'package:winner_trains_app/resources/app_assets.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
 import 'package:winner_trains_app/view/widgets/buttons/custom_button.dart';
 import 'package:winner_trains_app/view/widgets/trainer/main_home_app_bar.dart';
+import 'package:winner_trains_app/viewModel/trainer_view_models/communites_card_view_model.dart';
 import 'package:winner_trains_app/viewModel/trainer_view_models/trainer_main_home_view_model.dart';
 import 'package:winner_trains_app/utils/routes/route_name.dart';
 
@@ -13,7 +14,7 @@ class CommunityDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomindex = Provider.of<TrainerMainHomeViewModel>(context);
+    final viewModel = Provider.of<CommunitesCardViewModel>(context);
 
     return Container(
       decoration: const BoxDecoration(
@@ -28,7 +29,7 @@ class CommunityDetail extends StatelessWidget {
           title: "Community",
           onBackTap: () {
             Navigator.pushNamed(context, RoutesName.homemain);
-            bottomindex.updateIndex(1);
+           // bottomindex.updateIndex(1);
           },
         ),
         body: SingleChildScrollView(
@@ -80,6 +81,7 @@ class CommunityDetail extends StatelessWidget {
             buttonText: "Join Community",
             onPressed: () {
               Navigator.pushNamed(context, RoutesName.communitesjoined);
+                viewModel.selectReportSelected("Joined");
             },
           ),
         ),
@@ -92,6 +94,7 @@ class CommunityDetail extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text("Stress-Related", style: AppTextStyle.heading()),
+     
         Row(
           children: [
             Image.asset(

@@ -19,7 +19,7 @@ class TrainerSideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomindex = Provider.of<TrainerMainHomeViewModel>(context);
+    final vm = Provider.of<TrainerMainHomeViewModel>(context);
     return GestureDetector(
       onTap: () {
         Navigator.pop(context);
@@ -48,8 +48,8 @@ class TrainerSideMenu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, RoutesName.homemain);
-                      bottomindex.updateIndex(3);
+                      Navigator.pop(context);
+                      vm.updateIndex(3);
                     },
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 10.0),
@@ -64,7 +64,8 @@ class TrainerSideMenu extends StatelessWidget {
                             offset: const Offset(0, 5),
                           ),
                         ],
-                        border: Border.all(color: const Color(0xff0AB2AE), width: 5.w),
+                        border: Border.all(
+                            color: const Color(0xff0AB2AE), width: 5.w),
                         shape: BoxShape.circle,
                         image: const DecorationImage(
                           fit: BoxFit.cover,
@@ -80,84 +81,95 @@ class TrainerSideMenu extends StatelessWidget {
                   'Alexandar Benjamin',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                   style: TextStyle(fontSize: 20.sp, color: context.onPrimary),
+                  style: TextStyle(fontSize: 20.sp, color: context.onPrimary),
                 ),
               ),
               5.h.verticalSpace,
               Center(
                 child: Text(
                   'alexanderbenjamin@domain.com',
-                 style: TextStyle(fontSize: 14.sp, color: context.onPrimary),
+                  style: TextStyle(fontSize: 14.sp, color: context.onPrimary),
                 ),
               ),
               40.h.verticalSpace,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  drawerItem("assets/images/Mask Group 134.png", "Home").inkWell(onTap: () {
-                  Navigator.pop(context);
-                    Navigator.pushNamed(context, RoutesName.homemain);
-                    bottomindex.updateIndex(0);
-                                    }),
+                  drawerItem("assets/images/Mask Group 134.png", "Home")
+                      .inkWell(onTap: () {
+                    Navigator.pop(context);
+                  
+                    vm.updateIndex(0);
+                  }),
                   drawerItem(
                     "assets/images/Mask Group 135.png",
                     "My Appointments",
                   ).inkWell(onTap: () {
-                  Navigator.pop(context);
-                    Navigator.pushNamed(context, RoutesName.homemain);
-                    bottomindex.updateIndex(2);
-                                    }),
+                    Navigator.pop(context);
+                    vm.updateIndex(2);
+                  }),
                   drawerItem(
                     "assets/images/Mask Group 13155.png",
                     "My Earning",
                   ).inkWell(onTap: () {
-                  Navigator.pop(context);
+                     
+                    Navigator.pop(context);
                     Navigator.pushNamed(context, RoutesName.myearning);
-                                    }),
+                     vm.updateIndex(0);
+                  }),
                   drawerItem(
                     "assets/images/Mask Group 13143.png",
                     "Analytics",
                   ).inkWell(onTap: () {
-                  Navigator.pop(context);
+                   
+                    Navigator.pop(context);
                     Navigator.pushNamed(context, RoutesName.analytics);
-                                    }),
+                       vm.updateIndex(0);
+                  }),
                   drawerItem(
                     "assets/images/Mask Group 131555.png",
                     "Saved Post",
                   ).inkWell(onTap: () {
+                     
                     Navigator.pop(context);
                     Navigator.pushNamed(context, RoutesName.savedpost);
-                                    }),
+                       vm.updateIndex(0);
+                  }),
                   drawerItem(
                     "assets/images/Mask Group 13108.png",
                     "Subscription",
                   ).inkWell(onTap: () {
+                   
                     Navigator.pop(context);
                     Navigator.pushNamed(context, RoutesName.renewsubscription);
-                                    }),
+                       vm.updateIndex(0);
+                  }),
                   drawerItem(
                     "assets/images/Mask Group 18.png",
                     "Help & Feedback",
                   ).inkWell(onTap: () {
+                     
                     Navigator.pop(context);
                     Navigator.pushNamed(context, RoutesName.feedbackform);
-                                    }),
+                      vm.updateIndex(0);
+                   
+                  }),
                   GestureDetector(
-                    onTap: () {
-                    
-                    },
+                    onTap: () {},
                     child: drawerItem(
                       "assets/images/Mask Group 17.png",
                       "Settings",
                     ).inkWell(onTap: () {
-                      Navigator.pop(context);
+                       Navigator.pop(context);
                       Navigator.pushNamed(context, RoutesName.settingscreen);
-                  }),
+                          vm.updateIndex(0);
+                   
+                    }),
                   ),
                 ],
-              ).paddingSymmetric(horizontal:20.w ),
+              ).paddingSymmetric(horizontal: 20.w),
               50.h.verticalSpace,
-             CustomButton(
+              CustomButton(
                 height: 55.h,
                 width: 230.w,
                 isGradient: true,
@@ -206,7 +218,7 @@ class TrainerSideMenu extends StatelessWidget {
 
   Widget drawerItem(String img, String title) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 15.h),
+      padding: EdgeInsets.symmetric(vertical: 18.h),
       child: Row(
         children: [
           Image.asset(

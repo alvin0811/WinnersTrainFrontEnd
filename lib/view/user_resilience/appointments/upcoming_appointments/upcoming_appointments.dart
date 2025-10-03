@@ -27,7 +27,7 @@ class UpcomingAppointments extends StatelessWidget {
                     width: 98.w,
                     fontsize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    height: 33.h,
+                    height: 38.h,
                   ),
                   appointmentButton: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

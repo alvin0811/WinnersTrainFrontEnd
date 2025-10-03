@@ -21,6 +21,7 @@ class UnattendedAppointments extends StatelessWidget {
             body: Column(
               children: [
                 AppointmentDetailsCard(
+                
                   button: CustomButton(
                     text: "Unattended",
                     isGradient: false,
@@ -29,7 +30,7 @@ class UnattendedAppointments extends StatelessWidget {
                     width: 113.w,
                     fontsize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    height: 33.h,
+                    height: 38.h,
                   ),
                 ),
                 10.h.verticalSpace,

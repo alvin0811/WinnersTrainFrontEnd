@@ -29,7 +29,7 @@ class CompletedAppointments extends StatelessWidget {
                     width: 108.w,
                     fontsize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    height: 33.h,
+                    height: 38.h,
                   ),
                 ),
                 isReviewed
