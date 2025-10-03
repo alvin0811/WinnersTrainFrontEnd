@@ -2,6 +2,7 @@ import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:winner_trains_app/utils/app_text_style.dart';
 import 'package:winner_trains_app/view/widgets/buttons/custom_button.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custominputfiled.dart';
 import 'package:winner_trains_app/view/widgets/trainer/auth_widgets/file_picker_card.dart';
@@ -60,7 +61,7 @@ class EditExperienceQualification extends StatelessWidget {
             width: double.infinity,
             child: Column(
               children: [
-                50.verticalSpace,
+                20.verticalSpace,
                 SizedBox(
                   width: 390.w,
                   child: Row(
@@ -75,18 +76,15 @@ class EditExperienceQualification extends StatelessWidget {
                           label: "",
                         ),
                       ),
-                       SizedBox(
+                      SizedBox(
                         width: 160.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Year",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                color: const Color(0xff121314),
-                                fontWeight: FontWeight.w400,
-                              ),
+                              style: AppTextStyle.body(
+                                  fontWeight: FontWeight.w600),
                             ),
                             10.verticalSpace,
                             Container(
@@ -101,49 +99,53 @@ class EditExperienceQualification extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              child: DropdownButtonHideUnderline(
-                                child: Theme(
-                                  data: Theme.of(context).copyWith(
-                                    canvasColor: Colors.white,
-                                    splashColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
+                              child: Theme(
+                                data: Theme.of(context).copyWith(
+                                  canvasColor: Colors.white,
+                                  splashColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  inputDecorationTheme:
+                                      const InputDecorationTheme(
+                                    border: InputBorder
+                                        .none, // 👈 remove underline globally
+                                    enabledBorder: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
                                   ),
-                                  child: DropdownDatePicker(
-                                    menuHeight: 300.h,
-                                    showYear: true,
-                                    isDropdownHideUnderline: false,
-                                    isFormValidator: true,
-                                    width: 1,
-                                    dayFlex: 1,
-                                    monthFlex: 1,
-                                    yearFlex: 1,
-                                    isExpanded: true,
-                                    selectedMonth: 10,
-                                    startYear: 1900,
-                                    endYear: DateTime.now().year,
-                                    hintYear: 'Year',
-                                    selectedYear:
-                                        int.tryParse(yearController.text),
-                                    onChangedYear: (String? year) {
-                                      if (year != null) {
-                                        yearController.text = year;
-                                      }
-                                    },
-                                    showDay: false,
-                                    showMonth: false,
-                                    hintTextStyle: TextStyle(
-                                      color: const Color(0xff121314),
-                                      fontSize: 14.sp,
-                                    ),
-                                    textStyle: TextStyle(
-                                      color: const Color(0xff121314),
-                                      fontSize: 14.sp,
-                                    ),
+                                ),
+                                child: DropdownDatePicker(
+                                  menuHeight: 300.h,
+                                  showYear: true,
+                                  isFormValidator: true,
+                                  width: 1,
+                                  dayFlex: 1,
+                                  monthFlex: 1,
+                                  yearFlex: 1,
+                                  isExpanded: true,
+                                  selectedMonth: 10,
+                                  startYear: 1900,
+                                  endYear: DateTime.now().year,
+                                  hintYear: 'Year',
+                                  selectedYear:
+                                      int.tryParse(yearController.text),
+                                  onChangedYear: (String? year) {
+                                    if (year != null) {
+                                      yearController.text = year;
+                                    }
+                                  },
+                                  showDay: false,
+                                  showMonth: false,
+                                  hintTextStyle: AppTextStyle.body(),
+                                  textStyle: AppTextStyle.body(),
+                                  // 👇 override decoration here too
+                                  inputDecoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
                                   ),
                                 ),
                               ),
-                            ),
+                            )
                           ],
                         ),
                       )

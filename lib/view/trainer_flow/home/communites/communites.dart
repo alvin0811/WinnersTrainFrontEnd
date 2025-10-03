@@ -15,19 +15,12 @@ class Communites extends StatefulWidget {
 }
 
 class _CommunitesState extends State<Communites> {
-    @override
-  void initState() {
-    final vm = Provider.of<CommunitesCardViewModel>(context, listen: false);
-    vm.selectedItem.value = "Discover";
+   @override
 
-    // TODO: implement initState
-    super.initState();
-  }
+
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<CommunitesCardViewModel>(context, listen: false);
-
-  
 
     Widget getSelectedScreen(String selected) {
       switch (selected) {
@@ -156,8 +149,7 @@ class _CommunitesState extends State<Communites> {
                       ),
                       child: FloatingActionButton(
                         onPressed: () {
-                          Navigator.pushNamed(
-                              context, RoutesName.createcommunites);
+                          Navigator.pushNamed(context, RoutesName.createcommunites);
                         },
                         backgroundColor: Colors.transparent,
                         elevation: 0,

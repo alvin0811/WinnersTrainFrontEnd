@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:winner_trains_app/models/card_model.dart';
 
+
+import 'package:flutter/material.dart';
+import 'package:winner_trains_app/models/card_model.dart';
+
 class CommunitesCardViewModel extends ChangeNotifier {
   List<String> items = [
     "Discover",
     "Joined",
     "Your"
   ];
+
+  // Default always Discover when created fresh
   ValueNotifier<String> selectedItem = ValueNotifier("Discover");
+
   List<CardDataModel> _discoverCards = [];
   List<CardDataModel> _joinedCards = [];
   List<CardDataModel> _yourCards = [];
+
   List<CardDataModel> get discoverCards => _discoverCards;
   List<CardDataModel> get joinedCards => _joinedCards;
   List<CardDataModel> get yourCards => _yourCards;
+
   void selectReportSelected(String index) {
     selectedItem.value = index;
     notifyListeners();
@@ -58,48 +67,54 @@ class CommunitesCardViewModel extends ChangeNotifier {
         subtext2: "1.6M members",
       ),
     ];
+
     _joinedCards = [
       CardDataModel(
         image: "assets/images/stress-related3-community.png",
         title: "Stress-Related",
         subtext1: "Public",
         subtext2: "1.6M members",
-      
       ),
       CardDataModel(
-         image: "assets/images/stress-related2-community.png",
+        image: "assets/images/stress-related2-community.png",
         title: "Anxiety",
         subtext1: "Public",
         subtext2: "1.6M members",
       ),
-       CardDataModel(
-         image: "assets/images/anxiety2-community.png",
+      CardDataModel(
+        image: "assets/images/anxiety2-community.png",
         title: "Depression",
         subtext1: "Public",
         subtext2: "1.6M members",
       ),
     ];
+
     _yourCards = [
       CardDataModel(
-           image: "assets/images/stress-related3-community.png",
+        image: "assets/images/stress-related3-community.png",
         title: "Stress-Related",
         subtext1: "Public",
         subtext2: "1.6M members",
-      
       ),
       CardDataModel(
-          image: "assets/images/anxiety2-community.png",
+        image: "assets/images/anxiety2-community.png",
         title: "Anxiety",
         subtext1: "Public",
         subtext2: "1.6M members",
       ),
-       CardDataModel(
-       image: "assets/images/stress-related2-community.png",
+      CardDataModel(
+        image: "assets/images/stress-related2-community.png",
         title: "Depression",
         subtext1: "Public",
         subtext2: "1.6M members",
       ),
     ];
+
+    notifyListeners();
+  }
+   void resetToDefaultTab() {
+    selectedItem.value = items.first; // 👈 always reset to first tab
     notifyListeners();
   }
 }
+
