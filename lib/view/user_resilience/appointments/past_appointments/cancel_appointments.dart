@@ -17,7 +17,9 @@ class CancelAppointments extends StatelessWidget {
             ),
             body: Column(
               children: [
-                const AppointmentDetailsCard(),
+                const AppointmentDetailsCard(
+                       time: '03:00 PM   To  04:00 PM',  
+                ),
                 10.h.verticalSpace,
                 Container(
                   width: double.infinity,

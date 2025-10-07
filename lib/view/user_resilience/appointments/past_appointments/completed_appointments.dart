@@ -21,6 +21,7 @@ class CompletedAppointments extends StatelessWidget {
             body: Column(
               children: [
                 AppointmentDetailsCard(
+                       time: '03:00 PM   To  04:00 PM',  
                   button: CustomButton(
                     text: "Completed",
                     isGradient: false,

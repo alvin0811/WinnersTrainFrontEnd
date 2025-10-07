@@ -19,6 +19,7 @@ class UpcomingAppointments extends StatelessWidget {
             body: Column(
               children: [
                 AppointmentDetailsCard(
+                  time: '',
                   button: CustomButton(
                     text: "Upcoming",
                     isGradient: false,

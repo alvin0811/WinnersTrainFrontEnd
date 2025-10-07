@@ -20,6 +20,7 @@ class OngoingAppointmentDetails extends StatelessWidget {
             body: Column(
               children: [
                 AppointmentDetailsCard(
+                       time: '03:00 PM   To  04:00 PM',  
                   docName: 'Alexander Benjamin',
                                  imageUrl: AppAssets.images.userProfile,
                     button: CustomButton(

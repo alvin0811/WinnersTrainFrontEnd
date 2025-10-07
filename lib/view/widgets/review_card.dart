@@ -69,28 +69,24 @@ class ReviewCard extends StatelessWidget {
                           )),
                       6.w.horizontalSpace,
                       SizedBox(
-                        height: 19.h,
-                        width: 127.w,
-                        child: ListView.builder(
+                          height: 25.h,
+                          width: 130.w,
+                          child: ListView.builder(
                             padding: EdgeInsets.zero,
-                            physics: AlwaysScrollableScrollPhysics(),
+                            physics: const AlwaysScrollableScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                             itemCount: 5,
-                            itemBuilder: (c, i) => i == 4
-                                ? SvgPicture.asset(
-                                    AppAssets.icon.halfStarIcon,
-                                    width: 19.w,
-                                    height: 19.h,
-                                  )
-                                : Container(
-                                    margin: EdgeInsets.only(right: 10.w),
-                                    child: Image.asset(
-                                      AppAssets.icon.starIcon,
-                                      width: 19.w,
-                                      height: 19.h,
-                                    ),
-                                  )),
-                      )
+                            itemBuilder: (context, index) {
+                              return Container(
+                                margin: EdgeInsets.only(right: 6.w),
+                                child: Icon(
+                                  index == 4 ? Icons.star_half : Icons.star,
+                                  color: Colors.amber, // yellow color
+                                  size: 22.h,
+                                ),
+                              );
+                            },
+                          ))
                     ],
                   ),
                 ],

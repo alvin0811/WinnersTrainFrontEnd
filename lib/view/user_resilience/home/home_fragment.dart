@@ -128,7 +128,7 @@ class HomeFragmentScreen extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.04),
+                      color: Color(0xffE0F2F3).withOpacity(0.8),
                       borderRadius: CustomBorderRadius.medium,
                       boxShadow: CustomShadows.defaultShadow,
                       border: CustomBorder.thin(color: Color(0xffD5D1D2))),
