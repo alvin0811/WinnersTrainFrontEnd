@@ -1,6 +1,5 @@
-import 'package:flutter_svg/svg.dart';
+
 import 'package:winner_trains_app/utils/basic_exports.dart';
-import 'package:winner_trains_app/view/widgets/custom_dialogbox.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custom_dailog_box.dart';
 
 void logoutDialog(BuildContext context) {

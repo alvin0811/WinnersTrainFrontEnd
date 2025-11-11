@@ -2,6 +2,8 @@ import 'dart:developer';
 
 enum AppFlow { user, trainer }
 
+enum HowitWorks { onBoarding, drawer }
+
 enum PaymentConfirmation { fromappointments, fromsubscription }
 
 enum VerificationFlow {
@@ -44,5 +46,13 @@ class G {
 
   set verification(VerificationFlow newFlow) {
     _verification = verification;
+  }
+
+  HowitWorks _howitWorks = HowitWorks.onBoarding;
+  HowitWorks get howitWorks => _howitWorks;
+
+  set howitWorks(HowitWorks newWork) {
+    _howitWorks = newWork;
+    log(howitWorks.toString());
   }
 }

@@ -151,6 +151,8 @@ class AppIcons {
       "${AppConfig.assetIconPath}camera.svg";
         final String greyComment =
       "${AppConfig.assetIconPath}grey-comment.png";
+       final String howitWorksIcon =
+      "${AppConfig.assetIconPath}how-it-works-icon.png";
 }
 
 class AppImages {
@@ -160,6 +162,7 @@ class AppImages {
   final String appBarBackground =
       "${AppConfig.assetImagePath}appBar-Background.png";
   final String userProfile = "${AppConfig.assetImagePath}user-Profile.png";
+    final String onboardingBackground = "${AppConfig.assetImagePath}onboarding-background.png";
   final String authDivider = "${AppConfig.assetImagePath}auth-divider.svg";
     final String userDrawerImage = "${AppConfig.assetIconPath}user-drawer-image.svg";
   final String userDrawerProfile =

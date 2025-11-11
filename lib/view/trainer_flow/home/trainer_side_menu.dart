@@ -8,6 +8,7 @@ import 'package:winner_trains_app/resources/theme/color_scheme.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
 import 'package:winner_trains_app/utils/extensions/custom_padding.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/user_resilience/drawer/logout_dialog.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custom_dailog_box.dart';
@@ -144,6 +145,18 @@ class TrainerSideMenu extends StatelessWidget {
                     Navigator.pushNamed(context, RoutesName.renewsubscription);
                        vm.updateIndex(0);
                   }),
+                    
+                  drawerItem(
+                          AppAssets.icon.howitWorksIcon, "How it Works")
+                      .inkWell(onTap: () {
+                          vm.updateIndex(0);
+                    Navigator.pop(context);
+                    G().howitWorks = HowitWorks.drawer;
+                    Navigator.pushNamed(
+                      context,
+                      RoutesName.howitWorks,
+                    );
+                  }),
                   drawerItem(
                     "assets/images/Mask Group 18.png",
                     "Help & Feedback",
@@ -218,7 +231,7 @@ class TrainerSideMenu extends StatelessWidget {
 
   Widget drawerItem(String img, String title) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 18.h),
+      padding: EdgeInsets.symmetric(vertical: 14.h),
       child: Row(
         children: [
           Image.asset(

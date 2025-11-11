@@ -3,6 +3,9 @@ class RoutesName {
   static const splashScreen = 'splash_screen';
   static const selectUser = 'select_user_Screen';
   static const agreement = 'agreement';
+  static const onboarding1 = 'onboarding_view1';
+  static const onboarding2 = 'onboarding_view2';
+    static const howitWorks = 'how_it_works_view';
 
   // User Auth
   static const preLogin = 'preLogin';

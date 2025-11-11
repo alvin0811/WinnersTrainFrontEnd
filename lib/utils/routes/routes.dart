@@ -106,8 +106,11 @@ import 'package:winner_trains_app/view/user_resilience/home/post/saved_post.dart
 import 'package:winner_trains_app/view/user_resilience/home/post/success_post_created.dart';
 
 import 'package:winner_trains_app/view/user_resilience/others/agreement.dart';
+import 'package:winner_trains_app/view/user_resilience/others/how-it-works/how_it_works_view.dart';
 import 'package:winner_trains_app/view/user_resilience/others/notifications.dart';
 import 'package:winner_trains_app/view/splash/role_screen.dart';
+import 'package:winner_trains_app/view/user_resilience/others/onboarding/onboarding_view1.dart';
+import 'package:winner_trains_app/view/user_resilience/others/onboarding/onboarding_view2.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/personal_survey_success.dart';
 
 import 'package:winner_trains_app/view/user_resilience/survey/user-survey/content_preference.dart';
@@ -185,7 +188,12 @@ class Routes {
         return pushTo(TermsConditions(
           index: args?['index'],
         ));
-
+           case RoutesName.onboarding1:
+        return pushTo(OnboardingView1());
+             case RoutesName.onboarding2:
+        return pushTo(OnboardingView2());
+           case RoutesName.howitWorks:
+        return pushTo(HowItWorksView());
       case RoutesName.preLogin:
         return pushTo(const UserPreLogin());
 
