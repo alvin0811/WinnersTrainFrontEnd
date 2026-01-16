@@ -105,30 +105,34 @@ class OnboardingView1 extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CustomButton(
-                      width: 207.w,
-                      height: 50.h,
-                      border: CustomBorder.thin(
-                        color: Color(0xff0AB2AE),
-                      ),
-                      isGradient: false,
-                      text: 'Skip',
-                      fontsize: 14.sp,
-                      fontcolor: context.onPrimary,
-                      color: context.primary,
-                      fontWeight: FontWeight.w500,
-                    ).inkWell(
-                        onTap: () => Navigator.pushNamedAndRemoveUntil(
-                            context, RoutesName.selectUser, (r) => false)),
+                    Expanded(
+                      child: CustomButton(
+                       // width: 207.w,
+                        height: 50.h,
+                        border: CustomBorder.thin(
+                          color: Color(0xff0AB2AE),
+                        ),
+                        isGradient: false,
+                        text: 'Skip',
+                        fontsize: 14.sp,
+                        fontcolor: context.onPrimary,
+                        color: context.primary,
+                        fontWeight: FontWeight.w500,
+                      ).inkWell(
+                          onTap: () => Navigator.pushNamedAndRemoveUntil(
+                              context, RoutesName.selectUser, (r) => false)),
+                    ),
                     15.w.horizontalSpace,
-                    CustomButton(
-                      width: 207.w,
-                      fontsize: 14.sp,
-                      height: 50.h,
-                      text: 'Continue',
-                    ).inkWell(onTap: () {
-                      Navigator.pushNamed(context, RoutesName.onboarding2);
-                    })
+                    Expanded(
+                      child: CustomButton(
+                       // width: 207.w,
+                        fontsize: 14.sp,
+                        height: 50.h,
+                        text: 'Continue',
+                      ).inkWell(onTap: () {
+                        Navigator.pushNamed(context, RoutesName.onboarding2);
+                      }),
+                    )
                   ],
                 ),
                 40.h.verticalSpace

@@ -103,7 +103,7 @@ class UserHomeScreen extends StatelessWidget {
                                       arguments: EmotionScreenMode.fromHome,
                                     ))
                             .paddingSymmetric(vertical: 10.h),
-                      if (selectedIndex == 2) 25.verticalSpace,
+                      if (selectedIndex == 2) 30.verticalSpace,
                       Opacity(
                         opacity: 0.9,
                         child: CurvedNavigationBar(

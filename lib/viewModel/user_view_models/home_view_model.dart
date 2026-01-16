@@ -1,5 +1,6 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_log.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page1.dart';
 
 class UserHomeViewModel extends ChangeNotifier {
   // int _bottomNavIndex = 0;
@@ -42,7 +43,7 @@ class UserHomeViewModel extends ChangeNotifier {
   final List<Widget> _pages = [
     HomeFragmentScreen(),
       CommunitiesPage(),
-      SurveyPage(),
+      SurveyPage1(),
       AppointmentsPage(),
   ];
   List<Widget> get pages => _pages;

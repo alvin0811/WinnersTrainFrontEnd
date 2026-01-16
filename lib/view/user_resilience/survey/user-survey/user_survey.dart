@@ -1,7 +1,5 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
-
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/survey_preferences_card.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/user-survey/survey_completion_emotions.dart';
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
@@ -18,9 +16,9 @@ class UserSurvey extends StatelessWidget {
         appBar: const CustomAppBar(
           title: 'Survey',
         ),
-        body: const SingleChildScrollView(
-          child: SurveyPreferencesCard(),
-        ),
+        // body: const SingleChildScrollView(
+        //   child: SurveyPreferencesCard(),
+        // ),
         bottomNavigationBar: Padding(
           padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.h),
           child: Row(

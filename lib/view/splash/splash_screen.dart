@@ -1,7 +1,5 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
-
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:winner_trains_app/view/splash/role_screen.dart';
 import 'package:winner_trains_app/view/user_resilience/others/onboarding/onboarding_view1.dart';
 
 class SplashScreen extends StatelessWidget {
