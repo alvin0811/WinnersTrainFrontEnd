@@ -1,44 +1,38 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/survery_page3.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/survey2.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey5.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page5.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/survey_preferences_card.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/user-survey/survey_completion_emotions.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/widgets/survey_progress_indicator.dart';
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
-import 'package:winner_trains_app/view/widgets/custom_background.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
 
-class UserSurvey extends StatelessWidget {
-  UserSurvey({super.key});
+class Survey4 extends StatelessWidget {
+  Survey4({super.key});
   final List<String> questions = [
-    'I can stay calm under pressure.',
-    'I can take a deep breath and refocus when upset.',
-    'I rarely let emotions control my decisions.',
-    'I can find ways to relax after a stressful event.',
-    'I can recover quickly after emotional setbacks.'
+    'I can break large problems into smaller, manageable steps.',
+    'I think creatively when traditional solutions fail.',
+    'I use logic to guide important decisions.',
+    'I consider multiple perspectives before acting.',
+    'I stay flexible when plans change.'
+
   ];
   @override
   Widget build(BuildContext context) {
-    return CustomBackground(
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: const CustomAppBar(
-          title: 'Survey',
-        ),
-        body:  SingleChildScrollView(
-          child: SurveyPreferencesCard(
-        questions: questions,
-        sections: 'EMOTIONAL REGULATION',
-        sectionDetail:
-            'Ability to manage stress, frustration, or negative emotions effectively.',
-        sectionCount: '1/10',
-        surveyProgressWidget: const SurveyProgressBar(
-          currentStep: 1, // screen number
-          totalSteps: 10,
-        ))
-        ),
-        bottomNavigationBar: Padding(
+    return Scaffold(
+      appBar: CustomAppBar(title: 'Survey',),
+      body: SurveyPreferencesCard(
+          questions: questions,
+          sections: 'PROBLEM SOLVING AND DECISION-MAKING',
+          sectionDetail:
+              'Ability to analyze, strategize, and take purposeful action',
+          sectionCount: '4/10',
+          surveyProgressWidget: const SurveyProgressBar(
+            currentStep: 4,// screen number
+            totalSteps: 10,
+          )),
+      bottomNavigationBar:  Padding(
           padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,16 +62,11 @@ class UserSurvey extends StatelessWidget {
               ).inkWell(
                   onTap: () =>  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context)=> Survey2())
+                    MaterialPageRoute(builder: (context)=> Survey5())
                   ))
             ],
           ),
         ),
-      ),
     );
   }
 }
-//  // Navigate or skip logic
-//                 Navigator.pushNamed(
-//                     context, RoutesName.surveyCompletionEmotions,
-//                     arguments: EmotionScreenMode.onboarding);

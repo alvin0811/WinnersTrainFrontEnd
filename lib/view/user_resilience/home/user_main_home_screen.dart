@@ -2,6 +2,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page2.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/user-survey/survey_completion_emotions.dart';
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
@@ -97,10 +98,9 @@ class UserHomeScreen extends StatelessWidget {
                           text: 'Please Answer all to Continue',
                         )
                             .inkWell(
-                                onTap: () => Navigator.pushNamed(
+                                onTap: () => Navigator.push(
                                       context,
-                                      RoutesName.surveyCompletionEmotions,
-                                      arguments: EmotionScreenMode.fromHome,
+                                      MaterialPageRoute(builder: (context)=> SurveyPage2())
                                     ))
                             .paddingSymmetric(vertical: 10.h),
                       if (selectedIndex == 2) 30.verticalSpace,

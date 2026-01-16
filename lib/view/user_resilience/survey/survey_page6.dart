@@ -1,21 +1,20 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
-import 'package:winner_trains_app/utils/routes/global.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/survery_page3.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page7.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/survey_preferences_card.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/user-survey/survey_completion_emotions.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/widgets/survey_progress_indicator.dart';
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
 
-class SurveyPage2 extends StatelessWidget {
-  SurveyPage2({super.key});
+class SurveyPage6 extends StatelessWidget {
+  SurveyPage6({super.key});
   final List<String> questions = [
-    'I trust my ability to solve unexpected problems.',
-    'I usually find a way to achieve my goals even when things get tough.',
-    'I can adapt my plan if something doesn’t work out.',
-    'I feel confident when taking on something new.',
-    'I rarely feel helpless in challenging situations.'
+    'I can reach out for help when I need it.',
+    'I have people I trust to discuss personal challenges with.',
+    'I make an effort to stay connected with others.',
+    'I offer emotional support to friends or colleagues in distress.',
+    'I value collaboration over competition.'
   ];
   @override
   Widget build(BuildContext context) {
@@ -23,21 +22,21 @@ class SurveyPage2 extends StatelessWidget {
       appBar: CustomAppBar(title: 'Survey',),
       body: SurveyPreferencesCard(
           questions: questions,
-          sections: 'SELF-EFFICACY',
+          sections: 'SOCIAL SUPPORT AND CONNECTION',
           sectionDetail:
-              'Belief in one’s ability to handle challenges successfully',
-          sectionCount: '2/10',
+              'Ability to both give and receive support under stress',
+          sectionCount: '6/10',
           surveyProgressWidget: const SurveyProgressBar(
-            currentStep: 2, // screen number
+            currentStep: 6,// screen number
             totalSteps: 10,
           )),
-      bottomNavigationBar:   CustomButton(
+      bottomNavigationBar: const CustomButton(
         text: 'Please Answer all to Continue',
       )
           .inkWell(
-              onTap: () => Navigator.push(
+              onTap: () =>  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context)=> SurveyPage3())
+                    MaterialPageRoute(builder: (context)=> SurveyPage7())
                   ))
           .paddingSymmetric(vertical: 25.h, horizontal: 20.w),
     );
