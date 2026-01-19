@@ -1,6 +1,7 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/survey_preferences_card.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/widgets/survey_preferences_card.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/widgets/survey_progress_indicator.dart';
+
 
 class SurveyPage1 extends StatelessWidget {
   SurveyPage1({super.key});
@@ -23,5 +24,6 @@ class SurveyPage1 extends StatelessWidget {
           currentStep: 1, // screen number
           totalSteps: 10,
         ));
+    
   }
 }

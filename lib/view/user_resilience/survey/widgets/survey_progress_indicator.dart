@@ -27,7 +27,7 @@ class SurveyProgressBar extends StatelessWidget {
               children: [
                 // Background bar
                 Container(
-                  height: 17.h,
+                  height: 10.h,
                   width: barWidth,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -38,7 +38,7 @@ class SurveyProgressBar extends StatelessWidget {
                 // Filled progress
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
-                  height: 17.h,
+                  height: 10.h,
                   width: barWidth * progress,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -48,28 +48,28 @@ class SurveyProgressBar extends StatelessWidget {
                   ),
                 ),
 
-                // Arrow indicator
-                Positioned(
-                  left: indicatorX - 6.w,
-                  top: 20.h,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        AppAssets.icon.surveyArrowIcon,
-                        width: 11.w,
-                        height: 17.h,
-                      ),
-                      2.h.verticalSpace,
-                      Text(
-                        '${(progress * 100).round()}%',
-                        style: context.labelMedium.copyWith(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // // Arrow indicator
+                // Positioned(
+                //   left: indicatorX - 17.w,
+                //   top: 20.h,
+                //   child: Column(
+                //     children: [
+                //       Image.asset(
+                //         AppAssets.icon.surveyArrowIcon,
+                //         width: 11.w,
+                //         height: 17.h,
+                //       ),
+                //       2.h.verticalSpace,
+                //       Text(
+                //         '${(progress * 100).round()}%',
+                //         style: context.labelMedium.copyWith(
+                //           fontSize: 12.sp,
+                //           fontWeight: FontWeight.w500,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ],

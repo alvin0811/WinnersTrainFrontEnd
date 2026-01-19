@@ -1,14 +1,8 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
-import 'package:winner_trains_app/utils/extensions/custom_border.dart';
-import 'package:winner_trains_app/utils/extensions/custom_border_radius.dart';
-import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
-import 'package:winner_trains_app/view/widgets/custom_textfield.dart';
-
-import 'package:winner_trains_app/view/widgets/preference_widget.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custominputfiled.dart';
 import 'package:winner_trains_app/viewModel/trainer_view_models/auth_view_model.dart';
 
@@ -239,7 +233,7 @@ class _ContentPreferenceState extends State<ContentPreference> {
           children: [
             TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RoutesName.userSurvey);
+                  Navigator.pushNamed(context, RoutesName.onboardingSurvey);
                 },
                 child: Text(
                   'Skip',
@@ -248,7 +242,7 @@ class _ContentPreferenceState extends State<ContentPreference> {
             30.h.verticalSpace,
             CustomButton(text: 'Continue').inkWell(
                 onTap: () =>
-                    Navigator.pushNamed(context, RoutesName.userSurvey)),
+                    Navigator.pushNamed(context, RoutesName.onboardingSurvey)),
           ],
         ).paddingSymmetric(horizontal: 20.w, vertical: 20.h),
       ),

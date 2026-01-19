@@ -2,6 +2,7 @@ import 'dart:developer';
 
 enum AppFlow { user, trainer }
 
+enum EmotionScreenMode { onboarding, fromHome, fromCompetencies }
 enum HowitWorks { onBoarding, drawer }
 
 enum PaymentConfirmation { fromappointments, fromsubscription }
@@ -31,7 +32,13 @@ class G {
     _flow = newRole;
     log(flow.toString());
   }
+  EmotionScreenMode _emotionScreenMode = EmotionScreenMode.onboarding;
+    EmotionScreenMode get emotionScreenMode => _emotionScreenMode;
 
+  set emotionScreenMode (EmotionScreenMode newMode) {
+    _emotionScreenMode = newMode;
+    log(emotionScreenMode.toString());
+  }
   PaymentConfirmation _paymentConfirmation =
       PaymentConfirmation.fromappointments;
   PaymentConfirmation get paymentConfirmation => _paymentConfirmation;

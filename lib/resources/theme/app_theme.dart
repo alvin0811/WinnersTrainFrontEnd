@@ -8,7 +8,7 @@ class AppTheme {
     splashColor: Colors.transparent,
     colorScheme: AppColor.lightScheme,
     // useMaterial3: false,
-    textTheme: GoogleFonts.latoTextTheme(AppText.theme),
+    textTheme: AppText.theme,
     scaffoldBackgroundColor: AppColor.lightScheme.background,
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(

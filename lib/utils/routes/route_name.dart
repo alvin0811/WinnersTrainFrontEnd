@@ -18,7 +18,7 @@ class RoutesName {
 
   ///
   static const contentPreferences = 'contentPreferences';
-  static const userSurvey = 'userSurvey';
+  static const onboardingSurvey = 'onboardingSurvey';
   static const surveyCompletionEmotions = 'surveryCompletionEmotions';
   static const targetFocus = 'targetFocus';
   static const microTraining = 'microTraining';

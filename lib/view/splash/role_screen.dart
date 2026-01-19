@@ -1,5 +1,4 @@
 import 'package:winner_trains_app/resources/app_strings.dart';
-import 'package:winner_trains_app/utils/app_enums.dart';
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_border.dart';
 import 'package:winner_trains_app/utils/extensions/custom_border_radius.dart';

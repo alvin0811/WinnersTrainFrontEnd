@@ -4,11 +4,11 @@ import 'package:winner_trains_app/utils/extensions/custom_border.dart';
 import 'package:winner_trains_app/utils/extensions/custom_border_radius.dart';
 
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
 
-enum EmotionScreenMode { onboarding, fromHome, fromCompetencies }
 
 class SurveyCompletionEmotions extends StatefulWidget {
   final EmotionScreenMode mode;
