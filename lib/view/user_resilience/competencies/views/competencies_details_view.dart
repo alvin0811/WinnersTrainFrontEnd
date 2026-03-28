@@ -1,7 +1,7 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/user_resilience/competencies/model/competencies_model.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/user-survey/survey_completion_emotions.dart';
 import 'package:winner_trains_app/view/widgets/buttons/custom_button.dart';
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
@@ -88,38 +88,52 @@ class CompetenciesDetailsView extends StatelessWidget {
               children: [
                 Center(
                   child: CustomButton(
-                       width: 258.w,
+                    width: 258.w,
                     buttonText: 'Continue',
                     onPressed: () {
                       if (index == 0) {
+                        // G().emotionScreenMode =
+                        //     EmotionScreenMode.fromCompetencies;
                         Navigator.pushNamed(
-                            context, RoutesName.surveyCompletionEmotions,
-                            arguments: EmotionScreenMode.fromCompetencies);
+                          context,
+                          RoutesName.surveyCompletionEmotions,
+                          arguments: EmotionScreenMode.fromCompetencies
+                        );
                       } else if (index == 1) {
-                          Navigator.pushNamed(context, RoutesName.situationPromptView);
+                        Navigator.pushNamed(
+                            context, RoutesName.situationPromptView);
                       } else if (index == 2) {
-                          Navigator.pushNamed(context, RoutesName.stimulusView);
+                        Navigator.pushNamed(context, RoutesName.stimulusView);
                       } else if (index == 3) {
-                          Navigator.pushNamed(context, RoutesName.identifyLoopView);
-                      }else if (index == 4) {
-                          Navigator.pushNamed(context, RoutesName.triggerReflectionView);
+                        Navigator.pushNamed(
+                            context, RoutesName.identifyLoopView);
+                      } else if (index == 4) {
+                        Navigator.pushNamed(
+                            context, RoutesName.triggerReflectionView);
                       } else if (index == 5) {
-                          Navigator.pushNamed(context, RoutesName.defineProblemView);
-                      }  else if (index == 6) {
-                          Navigator.pushNamed(context, RoutesName.stressSpikeView);
-                      }  else if (index == 7) {
-                          Navigator.pushNamed(context, RoutesName.snapshotView);
+                        Navigator.pushNamed(
+                            context, RoutesName.defineProblemView);
+                      } else if (index == 6) {
+                        Navigator.pushNamed(
+                            context, RoutesName.stressSpikeView);
+                      } else if (index == 7) {
+                        Navigator.pushNamed(context, RoutesName.snapshotView);
                       } else if (index == 8) {
-                          Navigator.pushNamed(context, RoutesName.setbackReflectionView);
-                      }  else if (index == 9) {
-                          Navigator.pushNamed(context, RoutesName.highEnergyMomentsView);
-                      }  else if (index == 10) {
-                          Navigator.pushNamed(context, RoutesName.coreStrengthView);
-                      }  else if (index == 11) {
-                          Navigator.pushNamed(context, RoutesName.setIntentionView);
-                      }  else if (index == 12) {
-                          Navigator.pushNamed(context, RoutesName.celebrateWinView);
-                      } 
+                        Navigator.pushNamed(
+                            context, RoutesName.setbackReflectionView);
+                      } else if (index == 9) {
+                        Navigator.pushNamed(
+                            context, RoutesName.highEnergyMomentsView);
+                      } else if (index == 10) {
+                        Navigator.pushNamed(
+                            context, RoutesName.coreStrengthView);
+                      } else if (index == 11) {
+                        Navigator.pushNamed(
+                            context, RoutesName.setIntentionView);
+                      } else if (index == 12) {
+                        Navigator.pushNamed(
+                            context, RoutesName.celebrateWinView);
+                      }
                     },
                   ),
                 ),

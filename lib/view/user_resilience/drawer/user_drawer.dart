@@ -1,5 +1,6 @@
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/user_resilience/drawer/logout_dialog.dart';
 // import 'package:winner_trains_app/view/user_resilience/others/logout_dialog.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
@@ -75,7 +76,6 @@ class UserDrawer extends StatelessWidget {
                   drawerItem(
                           AppAssets.icon.drawerAppointmentIcon, "Appointments")
                       .inkWell(onTap: () {
-                    value.index = 0;
                     Navigator.pop(context);
                     value.index = 3;
                   }),
@@ -97,14 +97,14 @@ class UserDrawer extends StatelessWidget {
                     Navigator.pushNamed(
                         context, RoutesName.bookMarkedResilienceTrainer);
                   }),
-                5.h.verticalSpace,
+                  5.h.verticalSpace,
                   drawerItem(AppAssets.icon.drawerBookmarkIcon, "Saved Post")
                       .inkWell(onTap: () {
                     value.index = 0;
                     Navigator.pop(context);
                     Navigator.pushNamed(context, RoutesName.userSavedPost);
                   }),
-                5.h.verticalSpace,
+                  5.h.verticalSpace,
                   drawerItem(AppAssets.icon.drawerPaymentHistoryIcon,
                           "Payment History")
                       .inkWell(onTap: () {
@@ -112,7 +112,7 @@ class UserDrawer extends StatelessWidget {
                     Navigator.pop(context);
                     Navigator.pushNamed(context, RoutesName.paymentHistory);
                   }),
-                 5.h.verticalSpace,
+                  5.h.verticalSpace,
                   drawerItem(
                           AppAssets.icon.drawerSubscriptionIcon, "Subscription")
                       .inkWell(onTap: () {
@@ -124,7 +124,19 @@ class UserDrawer extends StatelessWidget {
                       arguments: {'isfromLiveSession': false},
                     );
                   }),
-                   5.h.verticalSpace,
+                  5.h.verticalSpace,
+                  drawerItem(
+                          AppAssets.icon.howitWorksIcon, "How it Works")
+                      .inkWell(onTap: () {
+                    value.index = 0;
+                    Navigator.pop(context);
+                    G().howitWorks = HowitWorks.drawer;
+                    Navigator.pushNamed(
+                      context,
+                      RoutesName.howitWorks,
+                    );
+                  }),
+                  5.h.verticalSpace,
                   drawerItem(AppAssets.icon.drawerHelpFeedbackIcon,
                           "Help & Feedback")
                       .inkWell(onTap: () {
@@ -134,7 +146,7 @@ class UserDrawer extends StatelessWidget {
                     Navigator.pushNamed(
                         context, RoutesName.userHelpAndFeedBack);
                   }),
-                   5.h.verticalSpace,
+                  5.h.verticalSpace,
                   drawerItem(AppAssets.icon.drawerSettingsIcon, "Settings")
                       .inkWell(onTap: () {
                     value.index = 0;
@@ -143,7 +155,7 @@ class UserDrawer extends StatelessWidget {
                   }),
                 ],
               ).paddingSymmetric(horizontal: 20.w),
-              50.h.verticalSpace,
+              47.h.verticalSpace,
               CustomButton(
                 height: 55.h,
                 width: 230.w,

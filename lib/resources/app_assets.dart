@@ -16,6 +16,7 @@ class AppIcons {
       "${AppConfig.assetIconPath}login-email-icon.png";
   final String passwordIcon = "${AppConfig.assetIconPath}password-icon.png";
   final String cameraIcon = "${AppConfig.assetIconPath}camera-icon.svg";
+  final String filterIcon = "${AppConfig.assetIconPath}filter.svg";
   final String personIcon = "${AppConfig.assetIconPath}person-icon.png";
   final String dropDownIcon = "${AppConfig.assetIconPath}drop-down-icon.svg";
   final String sadIcon = "${AppConfig.assetIconPath}sad-icon.svg";
@@ -29,7 +30,7 @@ class AppIcons {
   final String notificationIcon =
       "${AppConfig.assetIconPath}notification-icon.svg";
   final String searchIcon = "${AppConfig.assetIconPath}search-icon.svg";
-  final String filterIcon = "${AppConfig.assetIconPath}filter-icon.png";
+  // final String filterIcon = "${AppConfig.assetIconPath}filter-icon.png";
   final String homeIcon = "${AppConfig.assetIconPath}home-icon.svg";
   final String communitiesIcon =
       "${AppConfig.assetIconPath}communities-icon.svg";
@@ -150,6 +151,8 @@ class AppIcons {
       "${AppConfig.assetIconPath}camera.svg";
         final String greyComment =
       "${AppConfig.assetIconPath}grey-comment.png";
+       final String howitWorksIcon =
+      "${AppConfig.assetIconPath}how-it-works-icon.png";
 }
 
 class AppImages {
@@ -159,6 +162,7 @@ class AppImages {
   final String appBarBackground =
       "${AppConfig.assetImagePath}appBar-Background.png";
   final String userProfile = "${AppConfig.assetImagePath}user-Profile.png";
+    final String onboardingBackground = "${AppConfig.assetImagePath}onboarding-background.png";
   final String authDivider = "${AppConfig.assetImagePath}auth-divider.svg";
     final String userDrawerImage = "${AppConfig.assetIconPath}user-drawer-image.svg";
   final String userDrawerProfile =

@@ -50,7 +50,7 @@ class _CreateThreadsState extends State<CreateThreads> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: const MainHomeAppBar(title: "Create Post "),
+        appBar: const MainHomeAppBar(title: "Create Threads "),
         body: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
@@ -86,9 +86,12 @@ class _CreateThreadsState extends State<CreateThreads> {
                       dashPattern: [6, 8],
                       borderType: BorderType.RRect,
                       color: const Color(0xFFD0D8E3),
-                      child: Card(
-                        elevation: 0,
-                        color: Colors.white,
+                      child: Container(
+                        height: 175.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15.0),
+                          color: Colors.white,
+                        ),
                         child: Center(
                           child: ValueListenableBuilder<String?>(
                             valueListenable: fileName,
@@ -109,12 +112,12 @@ class _CreateThreadsState extends State<CreateThreads> {
                                               "assets/svg/upload.svg"),
                                           SizedBox(height: 10.h),
                                           Text(
-                                            name ?? "Click to upload",
+                                            name ?? "Add More",
                                             textAlign: TextAlign.center,
-                                             style: AppTextStyle.button(
-                 color: const Color(0xff4C5157),
-                              fontWeight: FontWeight.bold,
-                ),
+                                            style: AppTextStyle.button(
+                                              color: const Color(0xff4C5157),
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                           SizedBox(height: 10.h),
                                           if (extension == 'jpg' ||

@@ -8,6 +8,7 @@ import 'package:winner_trains_app/view/widgets/buttons/custom_button.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custom_socail_bottom_sheet.dart';
 import 'package:winner_trains_app/view/widgets/trainer/home_widgets/home_card_widget.dart';
 import 'package:winner_trains_app/view/widgets/trainer/main_home_app_bar.dart';
+import 'package:winner_trains_app/viewModel/trainer_view_models/communites_card_view_model.dart';
 import 'package:winner_trains_app/viewModel/trainer_view_models/home_card_view_model.dart';
 import 'package:winner_trains_app/viewModel/trainer_view_models/trainer_main_home_view_model.dart';
 import 'package:winner_trains_app/utils/app_colors.dart';
@@ -19,15 +20,17 @@ class CommunitesJoined extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bottomindex = Provider.of<TrainerMainHomeViewModel>(context);
-    return Container(decoration: const BoxDecoration(
-  image: DecorationImage(
-    image: AssetImage("assets/images/bg.png"),
-    fit: BoxFit.cover,
-  ),
-),
+    final vm = Provider.of<CommunitesCardViewModel>(context);
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/bg.png"),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-       appBar: MainHomeAppBar(
+        appBar: MainHomeAppBar(
           title: "Community",
           onBackTap: () {
             Navigator.pushNamed(context, RoutesName.homemain);
@@ -37,12 +40,12 @@ class CommunitesJoined extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-             Image.asset(
-                        AppAssets.images.community,
-                        fit: BoxFit.cover,
-                        width: 430.w,
-                        height: 261.h,
-                      ),
+              Image.asset(
+                AppAssets.images.community,
+                fit: BoxFit.cover,
+                width: 430.w,
+                height: 261.h,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -52,15 +55,15 @@ class CommunitesJoined extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GestureDetector(onTap: () {
-                          Navigator.pushNamed(context, RoutesName.comyourrtressrelated);
-                        },
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, RoutesName.comyourrtressrelated);
+                          },
                           child: Row(
                             children: [
-                              Text(
-                                "Stress-Related",
-                               style:AppTextStyle.heading()
-                              ),
+                              Text("Stress-Related",
+                                  style: AppTextStyle.heading()),
                               8.horizontalSpace,
                               SvgPicture.asset(
                                 "assets/svg/Mask Group 13145.svg",
@@ -80,9 +83,9 @@ class CommunitesJoined extends StatelessWidget {
                             5.horizontalSpace,
                             Text(
                               "Public",
-                               style: AppTextStyle.button(
-                 color: const Color(0xff4C5157),
-                ),
+                              style: AppTextStyle.button(
+                                color: const Color(0xff4C5157),
+                              ),
                             ),
                           ],
                         ),
@@ -100,9 +103,9 @@ class CommunitesJoined extends StatelessWidget {
                         Text(
                           "1.6M members",
                           style: AppTextStyle.button(
-                 color: const Color(0xff4C5157),
-                              fontWeight: FontWeight.w400,
-                ),
+                            color: const Color(0xff4C5157),
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ],
                     ),
@@ -116,21 +119,23 @@ class CommunitesJoined extends StatelessWidget {
                                 context,
                                 RoutesName.communitydetail,
                               );
+                              vm.selectReportSelected("Discover");
                             },
                             child: Container(
                               height: 40.h,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(35.r),
                                 color: Colors.white,
-                                border: Border.all(color: const Color(0xff0AB2AE)),
+                                border:
+                                    Border.all(color: const Color(0xff0AB2AE)),
                               ),
                               child: Center(
                                 child: Text(
                                   "Leave",
-                                   style: AppTextStyle.button(
-                 color: const Color(0xff4C5157),
-                              fontWeight: FontWeight.w400,
-                ),
+                                  style: AppTextStyle.button(
+                                    color: const Color(0xff4C5157),
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ),
                             ),
@@ -143,18 +148,16 @@ class CommunitesJoined extends StatelessWidget {
                             child: CustomButton(
                               buttonText: "Invite",
                               onPressed: () {
-                                 showModalBottomSheet(
-                                
-                            backgroundColor: AppColors.backgroundColor,
-                            context: context,
-                            isScrollControlled: true,
-                          
-                            builder:
-                                (context) => const SocialMediaBottomSheet(
-                                  showSuggestions: false,
-                                  heightFactor: 0.18,
-                                ),
-                          );
+                                showModalBottomSheet(
+                                  backgroundColor: AppColors.backgroundColor,
+                                  context: context,
+                                  isScrollControlled: true,
+                                  builder: (context) =>
+                                      const SocialMediaBottomSheet(
+                                    showSuggestions: false,
+                                    heightFactor: 0.18,
+                                  ),
+                                );
                               },
                             ),
                           ),

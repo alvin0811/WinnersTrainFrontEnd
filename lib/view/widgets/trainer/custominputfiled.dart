@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:winner_trains_app/resources/extensions/context_extension.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
+import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
 
 // ignore: must_be_immutable
 class CustomInputWidget extends StatefulWidget {
@@ -27,7 +29,7 @@ class CustomInputWidget extends StatefulWidget {
     this.fillcolors,
     this.headertextcolor,
     this.radius,
-    this.isReadOnly = false,
+    this.isReadOnly ,
     required this.Header,
     this.controller, // Optional controller
   }) : super(key: key);
@@ -50,7 +52,7 @@ class CustomInputWidget extends StatefulWidget {
   final String Header;
   final Color? fillcolors;
   final double? radius;
-  final bool isReadOnly;
+  final bool? isReadOnly;
   final Color? headertextcolor;
   final TextAlignVertical? setaliment;
   final TextInputAction textInputAction;
@@ -88,22 +90,17 @@ class _CustomInputWidgetState extends State<CustomInputWidget> {
             builder: (_, isObsecure, c) {
               return Container(
                 decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0xff2238500f),
-                      offset: const Offset(0, 1),
-                      blurRadius: 10.r,
-                    ),
-                  ],
+                  boxShadow : CustomShadows.defaultShadow
                 ),
                 child: TextFormField(
                   // obscuringCharacter: "*",
                   textCapitalization: TextCapitalization.words,
-                  readOnly: widget.isReadOnly,
+                  readOnly: widget.isReadOnly ?? false,
                   clipBehavior: Clip.none,
                   textAlignVertical: widget.setaliment,
                   maxLines: isObsecure ? 1 : widget.maxline ?? 1,
                   controller: controller,
+                  cursorColor: context.onPrimary,
                   obscureText: isObsecure,
                   style: TextStyle(
                     color: const Color(0xff121314),
@@ -111,7 +108,7 @@ class _CustomInputWidgetState extends State<CustomInputWidget> {
                     fontWeight: FontWeight.w400,
                   ),
                   decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.all(12),
+                    contentPadding:  EdgeInsets.symmetric(vertical: 12.h,horizontal: 20.w ),
                     hintText: widget.hint,
                     hintStyle: const TextStyle(color: Color(0xff121314)),
                     focusedBorder: OutlineInputBorder(
@@ -128,13 +125,13 @@ class _CustomInputWidgetState extends State<CustomInputWidget> {
                     filled: true,
                     prefixIcon: widget.prefixIconPath != null
                         ? Padding(
-                            padding: EdgeInsets.all(13.w),
+                            padding: EdgeInsets.only(left: 12.w, right: 5.w, top: 14.h, bottom: 14.h),
                             child: SvgPicture.asset(widget.prefixIconPath!),
                           )
                         : null,
                     suffixIcon: widget.suffixIconPath != null
                         ? Padding(
-                            padding: EdgeInsets.all(13.w),
+                            padding: EdgeInsets.only(left: 12.w, right: 5.w, top: 14.h, bottom: 14.h),
                             child: SvgPicture.asset(widget.suffixIconPath!),
                           )
                         : (forPassword

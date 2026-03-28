@@ -55,8 +55,8 @@ class CommunitiesPage extends StatelessWidget {
                   children: [
                     CustomTabbar(
                         items: value.items,
-                        height: 42.h,
-                        width: 188.w,
+                        height: 44.h,
+                        width: 191.w,
                         val: value.selectedItem),
                     20.h.verticalSpace,
                     ValueListenableBuilder<String>(

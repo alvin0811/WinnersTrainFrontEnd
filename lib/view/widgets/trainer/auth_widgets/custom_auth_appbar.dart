@@ -6,8 +6,13 @@ class CustomAuthAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double appBarHeight;
   final String logoPath;
   final String text;
+  final double? logoWidth;
+  final double? logoHeight;
   final String subtext;
+  final Color? bgColor;
+  final Color? titleColor;
   final bool showText;
+  final String? bgImage;
   final String? titleText;
   final bool showBackButton;
   final VoidCallback? onPressed;
@@ -22,22 +27,30 @@ class CustomAuthAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleText = '',
     this.showBackButton = false,
     this.onPressed,
+    this.bgImage,
+    this.titleColor,
+    this.logoWidth,
+    this.logoHeight, this.bgColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
-      preferredSize: Size.fromHeight(appBarHeight),
+      preferredSize: Size.fromHeight(
+        appBarHeight,
+      ),
       child: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
         flexibleSpace: Container(
+          height: double.infinity,
+          width: double.infinity,
           decoration: BoxDecoration(
-            image: const DecorationImage(
-              image: AssetImage("assets/images/authbg.png"),
-              fit: BoxFit.cover,
-            ),
+            color: bgColor,
+            image: DecorationImage(
+                image: AssetImage(bgImage ?? "assets/images/authbg.png"),
+                fit: BoxFit.cover),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(50.r),
               bottomRight: Radius.circular(50.r),
@@ -50,8 +63,8 @@ class CustomAuthAppBar extends StatelessWidget implements PreferredSizeWidget {
               60.verticalSpace,
               Image.asset(
                 logoPath,
-                width: 203.w,
-                height: 165.h,
+                width: logoWidth ?? 203.w,
+                height: logoHeight ?? 165.h,
                 fit: BoxFit.contain,
               ),
               if (showText)
@@ -99,7 +112,7 @@ class CustomAuthAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: titleText != null && titleText!.isNotEmpty
             ? Text(titleText!,
                 style: AppTextStyle.button(
-                  color: const Color(0xffffffff),
+                  color: titleColor ?? const Color(0xffffffff),
                   fontWeight: FontWeight.bold,
                 ))
             : null,

@@ -98,8 +98,8 @@ class UserJoinLiveSession extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: SvgPicture.asset(
-                  AppAssets.icon.arrowBackIcon,
+                child: Image.asset(
+                    "assets/images/back.png",
                   width: 40.w,
                   height: 40.h,
                 ),

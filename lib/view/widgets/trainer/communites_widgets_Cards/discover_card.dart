@@ -10,33 +10,35 @@ class DiscoverCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: 390.w,
-    child: Consumer<CommunitesCardViewModel>(
-  builder: (context, viewModel, child) {
-    final cardData = viewModel.discoverCards;
-    return GridView.builder(
-      shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, 
-        crossAxisSpacing: 0.w, 
-        mainAxisSpacing: 8.h, 
-        childAspectRatio: 200.w /255.h, 
+    return SizedBox(
+      width: 390.w,
+      child: Consumer<CommunitesCardViewModel>(
+        builder: (context, viewModel, child) {
+          final cardData = viewModel.discoverCards;
+          return GridView.builder(
+            shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 0.w,
+              mainAxisSpacing: 8.h,
+              childAspectRatio: 200.w / 255.h,
+            ),
+            itemCount: cardData.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, RoutesName.communitydetail);
+                  
+                },
+                child: CustomCard(
+                  cardData: cardData[index],
+                  hasJoinButton: true,
+                ),
+              );
+            },
+          );
+        },
       ),
-      itemCount: cardData.length,
-      itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, RoutesName.communitydetail);
-          },
-          child: CustomCard(
-            cardData: cardData[index],
-            hasJoinButton: true,
-          ),
-        );
-      },
-    );
-  },
-),
     );
   }
 }
@@ -89,4 +91,3 @@ class DiscoverCard extends StatelessWidget {
 //     );
 //   }
 // }
-

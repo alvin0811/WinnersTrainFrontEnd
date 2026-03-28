@@ -9,7 +9,7 @@ export 'package:winner_trains_app/resources/theme/text_theme.dart';
 export  'package:winner_trains_app/view/user_resilience/appointments/appointments_page.dart';
 export 'package:winner_trains_app/view/user_resilience/communities/communities_page.dart';
 export 'package:winner_trains_app/view/user_resilience/home/home_fragment.dart';
-export 'package:winner_trains_app/view/user_resilience/survey/survery_page.dart';
+//export 'package:winner_trains_app/view/user_resilience/survey/survery_page.dart';
 export 'package:winner_trains_app/utils/extensions/custom_padding.dart';
 export 'package:provider/provider.dart';
 export 'package:winner_trains_app/utils/routes/route_name.dart';

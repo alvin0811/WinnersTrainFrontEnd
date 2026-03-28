@@ -1,8 +1,9 @@
-import 'package:flutter_svg/svg.dart';
+
 import 'package:winner_trains_app/utils/app_text_style.dart';
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/user-survey/survey_completion_emotions.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
+
 import 'package:winner_trains_app/view/widgets/custom_appbar.dart';
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
 //import 'package:winner_trains_app/view/widgets/custom_curved_navigation_bar.dart';
@@ -95,15 +96,14 @@ class UserHomeScreen extends StatelessWidget {
                       if (selectedIndex == 2)
                         const CustomButton(
                           text: 'Please Answer all to Continue',
-                        )
-                            .inkWell(
-                                onTap: () => Navigator.pushNamed(
-                                      context,
-                                      RoutesName.surveyCompletionEmotions,
-                                      arguments: EmotionScreenMode.fromHome,
-                                    ))
-                            .paddingSymmetric(vertical: 10.h),
-                      if (selectedIndex == 2) 25.verticalSpace,
+                        ).inkWell(onTap: () {
+                          G().emotionScreenMode = EmotionScreenMode.fromHome;
+                          Navigator.pushNamed(
+                            context,
+                            RoutesName.surveyPage2,
+                          );
+                        }).paddingOnly(top: 15.h),
+                      if (selectedIndex == 2) 30.verticalSpace,
                       Opacity(
                         opacity: 0.9,
                         child: CurvedNavigationBar(
@@ -176,7 +176,7 @@ class UserHomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-            
+
                 // bottomNavigationBar: CurvedNavigationBar(
                 //   itemNames: const [
                 //     'Home',
@@ -218,7 +218,8 @@ class UserHomeScreen extends StatelessWidget {
                 // ),
                 floatingActionButton: vm.index == 0
                     ? Visibility(
-                        visible: MediaQuery.of(context).viewInsets.bottom == 0.0,
+                        visible:
+                            MediaQuery.of(context).viewInsets.bottom == 0.0,
                         child: Opacity(
                           opacity: 1.0,
                           child: Container(
@@ -234,7 +235,8 @@ class UserHomeScreen extends StatelessWidget {
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                               ),
-                              border: Border.all(color: Colors.white, width: 3.0),
+                              border:
+                                  Border.all(color: Colors.white, width: 3.0),
                             ),
                             child: FloatingActionButton(
                               onPressed: () {

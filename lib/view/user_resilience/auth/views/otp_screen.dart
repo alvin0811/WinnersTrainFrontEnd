@@ -3,6 +3,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:winner_trains_app/utils/app_enums.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
 import 'package:winner_trains_app/utils/basic_exports.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 
 import 'package:winner_trains_app/view/widgets/custom_background.dart';
 import 'package:winner_trains_app/view/widgets/trainer/auth_widgets/custom_auth_appbar.dart';

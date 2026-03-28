@@ -196,7 +196,7 @@ class _TrainerCreateProfileState extends State<TrainerCreateProfile> {
                   Header: "Bio & Specialization",
                   maxline: 4,
                   radius: 20,
-                  hint: "type here...",
+                  hint: "Type here...",
                   label: "",
                 ),20.verticalSpace,
               ],

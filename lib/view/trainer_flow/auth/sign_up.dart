@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winner_trains_app/utils/app_enums.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/widgets/buttons/custom_button.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custominputfiled.dart';
 import 'package:winner_trains_app/view/widgets/trainer/auth_widgets/custom_auth_appbar.dart';

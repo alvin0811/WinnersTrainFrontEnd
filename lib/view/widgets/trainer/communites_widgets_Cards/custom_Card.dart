@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
+import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/view/widgets/buttons/custom_button.dart';
 import 'package:winner_trains_app/models/card_model.dart';
 import 'package:winner_trains_app/utils/routes/route_name.dart';
+import 'package:winner_trains_app/viewModel/trainer_view_models/communites_card_view_model.dart';
 
 // class CustomCard extends StatelessWidget {
 //   final CardDataModel cardData;
@@ -123,6 +125,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<CommunitesCardViewModel>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 5.w),
       child: Container(
@@ -213,6 +216,7 @@ class CustomCard extends StatelessWidget {
                         context,
                         RoutesName.communitesjoined,
                       );
+                      viewModel.selectReportSelected("Joined");
                     },
                   ),
                 ),

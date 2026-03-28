@@ -12,36 +12,10 @@ import 'package:winner_trains_app/view/widgets/custom_profile_image.dart';
 import 'package:winner_trains_app/view/widgets/custom_textfield.dart';
 import 'package:winner_trains_app/view/widgets/trainer/custom_dailog_box.dart';
 
-class UserEditProfile extends StatefulWidget {
-  const UserEditProfile({super.key});
+class UserEditProfile extends StatelessWidget {
+  UserEditProfile({super.key});
 
-  @override
-  State<UserEditProfile> createState() => _UserEditProfileState();
-}
-
-class _UserEditProfileState extends State<UserEditProfile> {
-  final ScrollController _scrollController = ScrollController();
-
-  ValueNotifier<bool> isScrolling = ValueNotifier(false);
-
-  @override
-  void initState() {
-    super.initState();
-    setScrollController();
-  }
-
-  void setScrollController() {
-    _scrollController.addListener(() {
-      if (_scrollController.offset > 10 && !isScrolling.value) {
-        isScrolling.value = true;
-        "isScrolling.value === >  ${isScrolling.value}".print();
-      } else if (_scrollController.offset <= 10 && isScrolling.value) {
-        isScrolling.value = false;
-        "isScrolling.value === >  ${isScrolling.value}".print();
-      }
-    });
-  }
-
+  // @override
   @override
   Widget build(BuildContext context) {
     final List<String> preferences = [
@@ -91,59 +65,21 @@ class _UserEditProfileState extends State<UserEditProfile> {
             height: 40.h,
           ),
         ),
-        // height: 215.h,
         title: 'Edit Profile',
-        // image: Positioned(
-        //   top: 140.h,
-        //   left: 130.w,
-        //   right: 130.w,
-        //   child: Column(
-        //     children: [
-        //       ProfilePicture(
-        //         borderWidth: 8.5,
-        //         imageUrl: AppAssets.images.userProfile,
-        //         child: SvgPicture.asset(AppAssets.icon.cameraIcon,
-        //             width: 70.w, height: 70.h),
-        //       ),
-        //       ValueListenableBuilder(
-        //           valueListenable: isScrolling,
-        //           builder: (c, v, _) {
-        //             return v != true
-        //                 ? Text("(Optional)", style: AppTextStyle.body())
-        //                 : SizedBox.shrink();
-        //           }),
-        //     ],
-        //   ),
-        // ),
       ),
       body: SingleChildScrollView(
-        controller: _scrollController,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Column(
-                children: [
-                  ProfilePicture(
-                    borderWidth: 8.5,
-                    imageUrl: AppAssets.images.userProfile,
-                    child: SvgPicture.asset(AppAssets.icon.cameraIcon,
-                        width: 70.w, height: 70.h),
-                  ),
-                  ValueListenableBuilder(
-                      valueListenable: isScrolling,
-                      builder: (c, v, _) {
-                        return v != true
-                            ? Center(
-                                child: Text("(Optional)",
-                                    style: AppTextStyle.body()))
-                            : SizedBox.shrink();
-                      }),
-                ],
+              child: ProfilePicture(
+                borderWidth: 8.5,
+                imageUrl: AppAssets.images.userProfile,
+                child: SvgPicture.asset(AppAssets.icon.cameraIcon,
+                    width: 70.w, height: 70.h),
               ),
             ),
-            // 73.h.verticalSpace,
-
+            Center(child: Text("(Optional)", style: AppTextStyle.body())),
             CustomTextfield(
                 headerText: 'Full Name',
                 customPadding: 15.w,
@@ -168,23 +104,6 @@ class _UserEditProfileState extends State<UserEditProfile> {
               customPadding: 15.w,
               headerText: 'Age',
               hintText: 'Enter your Age',
-              // suffixIcon: Icon(
-              //   Icons.calendar_month,
-              //   size: 24,
-              //   color: Colors.black.withOpacity(0.6),
-              // ).inkWell(onTap: () {
-              //   showDialog(
-              //     context: context,
-              //     builder: (_) {
-              //       return CustomDatePicker(
-              //         initialDate: DateTime.now(),
-              //         onDateSelected: (date) {
-              //           print("Selected Date: $date");
-              //         },
-              //       );
-              //     },
-              //   );
-              // })),
             ),
             20.h.verticalSpace,
             CustomTextfield(

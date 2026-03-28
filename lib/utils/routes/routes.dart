@@ -1,4 +1,5 @@
 import 'package:winner_trains_app/utils/app_enums.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/trainer_flow/auth/profile_verification.dart';
 import 'package:winner_trains_app/view/trainer_flow/auth/reset_password.dart';
 import 'package:winner_trains_app/view/trainer_flow/auth/verification_Code.dart';
@@ -105,14 +106,26 @@ import 'package:winner_trains_app/view/user_resilience/home/post/saved_post.dart
 import 'package:winner_trains_app/view/user_resilience/home/post/success_post_created.dart';
 
 import 'package:winner_trains_app/view/user_resilience/others/agreement.dart';
+import 'package:winner_trains_app/view/user_resilience/others/how-it-works/how_it_works_view.dart';
 import 'package:winner_trains_app/view/user_resilience/others/notifications.dart';
 import 'package:winner_trains_app/view/splash/role_screen.dart';
+import 'package:winner_trains_app/view/user_resilience/others/onboarding/onboarding_view1.dart';
+import 'package:winner_trains_app/view/user_resilience/others/onboarding/onboarding_view2.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/content_preference.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/onboarding_survey.dart';
 import 'package:winner_trains_app/view/user_resilience/survey/personal_survey_success.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/success_account_creation.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survery_page3.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_completion_emotions.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page10.dart' show SurveyPage10;
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page2.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page4.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page5.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page6.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page7.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page8.dart';
+import 'package:winner_trains_app/view/user_resilience/survey/survey_page9.dart';
 
-import 'package:winner_trains_app/view/user_resilience/survey/user-survey/content_preference.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/user-survey/success_account_creation.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/user-survey/survey_completion_emotions.dart';
-import 'package:winner_trains_app/view/user_resilience/survey/user-survey/user_survey.dart';
 
 import 'package:winner_trains_app/view/user_resilience/userProfile/create_profile.dart';
 
@@ -166,7 +179,7 @@ import 'package:winner_trains_app/view/trainer_flow/home/subscription/my_live_se
 import 'package:winner_trains_app/view/trainer_flow/home/subscription/set_filter_screen.dart';
 import 'package:winner_trains_app/view/trainer_flow/home/subscription/subcription_plans.dart';
 import 'package:winner_trains_app/view/trainer_flow/home/subscription/renew_subcription.dart';
-import 'package:winner_trains_app/view/trainer_flow/home/user_main.dart';
+import 'package:winner_trains_app/view/trainer_flow/home/trainer_home_view.dart';
 import 'package:winner_trains_app/view/user_resilience/userProfile/edit_profile.dart';
 import 'package:winner_trains_app/view/user_resilience/userProfile/profile_details.dart';
 
@@ -184,7 +197,12 @@ class Routes {
         return pushTo(TermsConditions(
           index: args?['index'],
         ));
-
+      case RoutesName.onboarding1:
+        return pushTo(OnboardingView1());
+      case RoutesName.onboarding2:
+        return pushTo(OnboardingView2());
+      case RoutesName.howitWorks:
+        return pushTo(HowItWorksView());
       case RoutesName.preLogin:
         return pushTo(const UserPreLogin());
 
@@ -218,13 +236,13 @@ class Routes {
         return pushTo(SuccessAccountCreation());
       case RoutesName.successFeedBack:
         return pushTo(const UserSuccessFeedback());
-      case RoutesName.userSurvey:
-        return pushTo(UserSurvey());
+      case RoutesName.onboardingSurvey:
+        return pushTo(OnboardingSurvey());
       case RoutesName.homeScreen:
         return pushTo(UserHomeScreen());
       case RoutesName.bestResilienceTrainer:
         final trainerRoute = settings.arguments as TrainerRoute;
-        return pushTo(BestResilienceTrainer(trainerRoute:  trainerRoute));
+        return pushTo(BestResilienceTrainer(trainerRoute: trainerRoute));
       case RoutesName.trainerProfile:
         return pushTo(const TrainerProfile());
       case RoutesName.reviews:
@@ -262,7 +280,7 @@ class Routes {
       case RoutesName.profileDetails:
         return pushTo(const UserProfileDetails());
       case RoutesName.editProfile:
-        return pushTo(const UserEditProfile());
+        return pushTo(UserEditProfile());
       case RoutesName.userHelpAndFeedBack:
         return pushTo(const UserHelpAndFeedback());
       case RoutesName.userEditPost:
@@ -389,7 +407,7 @@ class Routes {
       case RoutesName.newCard:
         return pushTo(const AddNewCard());
       case RoutesName.successBookingSchedule:
-        return pushTo(const SuccessScheduleAppointment());
+        return pushTo(SuccessScheduleAppointment());
       case RoutesName.successRescheduleAppointment:
         return pushTo(const SuccessRescheduleAppointment());
       case RoutesName.successPersonalSurvey:
@@ -466,7 +484,7 @@ class Routes {
         return MaterialPageRoute(
             builder: (_) => const TrainerProfileVerification());
       case RoutesName.homemain:
-        return MaterialPageRoute(builder: (_) => const HomeMain());
+        return MaterialPageRoute(builder: (_) => const TrainerHomeView());
       case RoutesName.communitydetail:
         return MaterialPageRoute(builder: (_) => const CommunityDetail());
       case RoutesName.communitesjoined:
@@ -506,11 +524,11 @@ class Routes {
       case RoutesName.canceldetails:
         return MaterialPageRoute(builder: (_) => const CancelDetails());
       case RoutesName.completedetails:
-        return MaterialPageRoute(builder: (_) => const CompleteDetails());
+        return MaterialPageRoute(builder: (_) => const CompletedDetails());
       case RoutesName.unattendeddetails:
         return MaterialPageRoute(builder: (_) => const UnattendedDetails());
       case RoutesName.editprofile:
-        return MaterialPageRoute(builder: (_) => const EditProfile());
+        return MaterialPageRoute(builder: (_) => EditProfile());
       case RoutesName.editavailability:
         return MaterialPageRoute(builder: (_) => const EditAvailability());
       case RoutesName.seeexperiencequalification:
@@ -568,7 +586,25 @@ class Routes {
       case RoutesName.trainerongoingappointmentreport:
         return MaterialPageRoute(
             builder: (_) => const TrainerOngoingAppointmentReport());
-
+      // survey
+      case RoutesName.surveyPage2:
+        return MaterialPageRoute(builder: (_) => SurveyPage2());
+      case RoutesName.surveyPage3:
+        return MaterialPageRoute(builder: (_) => SurveyPage3());
+      case RoutesName.surveyPage4:
+        return MaterialPageRoute(builder: (_) => SurveyPage4());
+          case RoutesName.surveyPage5:
+        return MaterialPageRoute(builder: (_) => SurveyPage5());
+         case RoutesName.surveyPage6:
+        return MaterialPageRoute(builder: (_) => SurveyPage6());
+        case RoutesName.surveyPage7:
+        return MaterialPageRoute(builder: (_) => SurveyPage7());
+            case RoutesName.surveyPage8:
+        return MaterialPageRoute(builder: (_) => SurveyPage8());
+         case RoutesName.surveyPage9:
+        return MaterialPageRoute(builder: (_) => SurveyPage9());
+        case RoutesName.surveyPage10:
+        return MaterialPageRoute(builder: (_) => SurveyPage10());
       default:
         return pushTo(
           const Scaffold(

@@ -1,121 +1,224 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:winner_trains_app/view/widgets/trainer/Appointments_widgets/ongoing_card.dart';
+import 'package:winner_trains_app/utils/basic_exports.dart';
+import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/view/user_resilience/appointments/appointment_card.dart';
+import 'package:winner_trains_app/view/widgets/custom_background.dart';
+import 'package:winner_trains_app/view/widgets/custom_button.dart';
+import 'package:winner_trains_app/view/widgets/custom_tabbar.dart';
 import 'package:winner_trains_app/view/widgets/trainer/Appointments_widgets/past_card.dart';
-import 'package:winner_trains_app/view/widgets/trainer/Appointments_widgets/upcoming_card.dart';
 import 'package:winner_trains_app/viewModel/trainer_view_models/appointment_card_view_model.dart';
 
-class Appointments extends StatelessWidget {
+class Appointments extends StatefulWidget {
   const Appointments({super.key});
 
   @override
+  State<Appointments> createState() => _AppointmentsState();
+}
+
+class _AppointmentsState extends State<Appointments> {
+  @override
+  void initState() {
+    final vm = Provider.of<AppointmentViewModel>(context, listen: false);
+    vm.selectedItem.value = "Upcoming";
+
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<AppointmentCardViewModel>(context);
-    Widget _getSelectedScreen() {
-      switch (controller.reportSelected) {
-        case 0:
-          return UpcomingCardListView();
-        case 1:
-          return OngoingCardListView();
-        case 2:
-          return PastCardListView();
-
-        default:
-          return Container(color: Colors.red);
-      }
-    }
-
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/bg.png"),
-          fit: BoxFit.cover,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/bg.png"),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body:
-        SizedBox(
-              width: double.infinity,
-              child: Column(
-                children: [
-                  20.verticalSpace,
-                  Container(
-                    width: 390.w,
-                    height: 52.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(28.r)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xff2238500F),
-                          offset: Offset(0, 1),
-                          blurRadius: 10.r,
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: List.generate(
-                          controller.reportFilters.length,
-                          (index) {
-                            return GestureDetector(
-                              onTap: () {
-                                // Update the selected tab
-                                controller.selectReportSelected(index);
-                              },
-                              child: Container(
-                                width: 128.w,
-                                height: 42.h,
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors:
-                                        controller.reportSelected == index
-                                            ? [
-                                              const Color(0xFFE2CFCF),
-                                              const Color(0xFF008B88),
-                                            ]
-                                            : [
-                                              const Color(0xffFFFFFF),
-                                              const Color(0xffFFFFFF),
-                                            ],
-                                  ),
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(26.r),
-                                  ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Consumer<AppointmentViewModel>(
+              builder: (context, viewModel, child) {
+            return Column(
+              children: [
+                CustomTabbar(
+                    items: viewModel.items,
+                    height: 44.h,
+                    width: 128.w,
+                    val: viewModel.selectedItem),
+                25.h.verticalSpace,
+                ValueListenableBuilder(
+                    valueListenable: viewModel.selectedItem,
+                    builder: (c, v, _) {
+                      return ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: viewModel.selectedItem.value == "Upcoming"
+                              ? 1
+                              : viewModel.selectedItem.value == "Ongonig"
+                                  ? 2
+                                  : 3,
+                          itemBuilder: (BuildContext context, index) {
+                            final selectedTab = viewModel.selectedItem.value;
+
+                            if (selectedTab == "Upcoming") {
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context,
+                                      RoutesName.upcomingappointmentdetails);
+                                },
+                                child: AppointmentCard(
+                                  docName: 'Alexander Benjamin',
+                                  imageUrl: AppAssets.images.userProfile,
+                                  buttonText: 'Upcoming',
+                                  isButton: true,
+                                  onTap: () {
+                                    Navigator.pushNamed(context,
+                                        RoutesName.upcomingappointmentdetails);
+                                  },
+                                  button: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 15.h, bottom: 5.h),
+                                          child: SizedBox(
+                                              width: 285.w,
+                                              height: 40.h,
+                                              child: CustomButton(
+                                                borderRadius:
+                                                    BorderRadius.circular(26.r),
+                                                fontcolor: context.onPrimary,
+                                                fontsize: 14.sp,
+                                                fontWeight: FontWeight.w400,
+                                                text: 'Cancel Booking',
+                                                color: context.primary,
+                                                isGradient: false,
+                                                border: Border.all(
+                                                  color: Color(0xff0AB2AE),
+                                                  width: 1.0,
+                                                ),
+                                              ).inkWell(
+                                                  onTap: () => Navigator.pushNamed(
+                                                      context,
+                                                      RoutesName
+                                                          .cancelbookingreason))),
+                                        ),
+                                      ]),
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    controller.reportFilters[index],
-                                    style: TextStyle(
-                                      color:
-                                          controller.reportSelected != index
-                                              ? const Color(0XFF4C5157)
-                                              : Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16.sp,
+                              );
+                            } else if (selectedTab == "Ongoing") {
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context,
+                                      RoutesName.ongoingappointemntdetails);
+                                },
+                                child: AppointmentCard(
+                                  docName: 'Alexander Benjamin',
+                                  imageUrl: AppAssets.images.userProfile,
+                                  onTap: () {
+                                    Navigator.pushNamed(context,
+                                        RoutesName.ongoingappointemntdetails);
+                                  },
+                                  buttonText: 'Ongoing',
+                                  isButton: true,
+                                  button: Padding(
+                                    padding:
+                                        EdgeInsets.only(top: 15.h, bottom: 5.h),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        SizedBox(
+                                            width: 280.w,
+                                            height: 40.h,
+                                            child: CustomButton(
+                                              text: 'Join Session',
+                                              fontsize: 14.sp,
+                                              fontWeight: FontWeight.w400,
+                                            ).inkWell(onTap: () {
+                                              Navigator.pushNamed(
+                                                  context,
+                                                  RoutesName
+                                                      .userJoinLiveSession);
+                                            })),
+                                      ],
                                     ),
                                   ),
                                 ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                  10.verticalSpace,
-                  Expanded(child: SizedBox(width: 390.w,
-                    child: _getSelectedScreen())),
-                ],
-              ),
-            ),
-      ),
-    );
+                              );
+                            } else {
+                              String buttonText;
+                              Color backgroundColor;
+                              Color fontColor;
+                              double width;
+                              double height;
+
+                              switch (index) {
+                                case 0:
+                                  buttonText = "Cancelled";
+                                  backgroundColor = Colors.red.withOpacity(0.2);
+                                  fontColor = Color(0xffE70000);
+                                  width = 91.w;
+                                  height = 38.h;
+
+                                  break;
+                                case 1:
+                                  buttonText = "Unattended";
+                                  backgroundColor = Color(0xffE7ECF2);
+                                  fontColor = Color(0xff7386A2);
+                                  width = 102.w;
+                                  height = 38.h;
+
+                                  break;
+                                default:
+                                  buttonText = "Completed";
+                                  backgroundColor =
+                                      Colors.green.withOpacity(0.2);
+                                  fontColor = Color(0xff3BAF2F);
+                                  width = 98.w;
+                                  height = 38.h;
+                              }
+
+                              return AppointmentCard(
+                                docName: 'Alexander Benjamin',
+                                imageUrl: AppAssets.images.userProfile,
+                                onTap: () {
+                                  index == 0
+                                      ? Navigator.pushNamed(
+                                          context, RoutesName.canceldetails)
+                                      : index == 1
+                                          ? Navigator.pushNamed(context,
+                                              RoutesName.unattendeddetails)
+                                          : Navigator.pushNamed(context,
+                                              RoutesName.completedetails);
+                                },
+                                isPast: true,
+                                button: CustomButton(
+                                  width: width,
+                                  height: height,
+                                  color: backgroundColor,
+                                  isGradient: false,
+                                  text: buttonText,
+                                  fontcolor: fontColor,
+                                  fontWeight: FontWeight.w400,
+                                  fontsize: 14.sp,
+                                ),
+                              ).inkWell(
+                                onTap: () {
+                                  index == 0
+                                      ? Navigator.pushNamed(
+                                          context, RoutesName.canceldetails)
+                                      : index == 1
+                                          ? Navigator.pushNamed(context,
+                                              RoutesName.unattendeddetails)
+                                          : Navigator.pushNamed(context,
+                                              RoutesName.completedetails);
+                                },
+                              );
+                            }
+                          });
+                    }),
+              ],
+            ).paddingSymmetric(horizontal: 19.w, vertical: 20.h);
+          }),
+        ));
   }
 }

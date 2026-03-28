@@ -1,12 +1,14 @@
-
 import 'package:winner_trains_app/utils/basic_exports.dart';
 import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
 import 'package:winner_trains_app/utils/extensions/custom_inkwell.dart';
+import 'package:winner_trains_app/utils/routes/global.dart';
 import 'package:winner_trains_app/view/widgets/custom_button.dart';
 import 'package:winner_trains_app/view/widgets/custom_profile_image.dart';
+import 'package:winner_trains_app/viewModel/trainer_view_models/appointment_card_view_model.dart';
 
 class AppointmentCard extends StatelessWidget {
   final String? imageUrl;
+  final VoidCallback onTap;
   final String? docName;
   final String? buttonText;
   final Widget? button;
@@ -14,13 +16,12 @@ class AppointmentCard extends StatelessWidget {
   final double? width;
   final bool isPast;
   final bool isButton;
-  final VoidCallback? onTap;
   const AppointmentCard({
     this.imageUrl,
     this.docName,
     this.width,
     this.button,
-    this.onTap,
+  required  this.onTap,
     this.buttonText,
     this.isPast = false,
     this.isButton = false,
@@ -29,10 +30,11 @@ class AppointmentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final vm = Provider.of<AppointmentViewModel>(context);
+    final navVM = Provider.of<AppointmentCardViewModel>(context);
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-      
       margin: EdgeInsets.only(
         bottom: 10.h,
       ),
@@ -77,23 +79,20 @@ class AppointmentCard extends StatelessWidget {
                     ),
                     SizedBox(
                         width: 99.w,
-                        height: 33.h,
+                        height: 38.h,
                         child: isPast
                             ? button
-                            : Consumer<AppointmentViewModel>(
-                              builder: (context, value, child){return 
-                               CustomButton(
-                                  width: width ?? 93.w,
-                                  height: 33.h,
-                                  borderRadius: BorderRadius.circular(28.r),
-                                  fontcolor: Color(0xff0066FF),
-                                  isGradient: false,
-                                  fontsize: 14.sp,
-                                  fontWeight: FontWeight.w400,
-                                  text: buttonText,
-                                  color: Colors.blue.withOpacity(0.2)).inkWell(onTap: ()=> value.selectedItem.value == "Upcoming"? 
-                                  Navigator.pushNamed(context,RoutesName.upcomingAppointments): Navigator.pushNamed(context, RoutesName.ongoingAppointments));
-  })),
+                            : CustomButton(
+                                    width: width ?? 93.w,
+                                    height: 33.h,
+                                    borderRadius: BorderRadius.circular(28.r),
+                                    fontcolor: Color(0xff0066FF),
+                                    isGradient: false,
+                                    fontsize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                    text: buttonText,
+                                    color: Colors.blue.withOpacity(0.2))
+                                .inkWell(onTap: onTap)),
                   ],
                 ),
               ),

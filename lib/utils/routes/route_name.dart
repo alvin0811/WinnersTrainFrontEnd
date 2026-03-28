@@ -3,6 +3,9 @@ class RoutesName {
   static const splashScreen = 'splash_screen';
   static const selectUser = 'select_user_Screen';
   static const agreement = 'agreement';
+  static const onboarding1 = 'onboarding_view1';
+  static const onboarding2 = 'onboarding_view2';
+  static const howitWorks = 'how_it_works_view';
 
   // User Auth
   static const preLogin = 'preLogin';
@@ -15,7 +18,7 @@ class RoutesName {
 
   ///
   static const contentPreferences = 'contentPreferences';
-  static const userSurvey = 'userSurvey';
+  static const onboardingSurvey = 'onboardingSurvey';
   static const surveyCompletionEmotions = 'surveryCompletionEmotions';
   static const targetFocus = 'targetFocus';
   static const microTraining = 'microTraining';
@@ -97,6 +100,16 @@ class RoutesName {
   static const successPlanUpgrade = 'success_plan_upgrade';
   static const liveSession = 'live_session';
   static const userJoinLiveSession = "user_Join_Live_session";
+  static const surveyPage2 = "survey_page2";
+  static const surveyPage3 = "survey_page3";
+  static const surveyPage4 = "survey_page4";
+  static const surveyPage5 = "survey_page5";
+  static const surveyPage6 = "survey_page6";
+  static const surveyPage7 = "survey_page7";
+  static const surveyPage8 = "survey_page8";
+  static const surveyPage9 = "survey_page9";
+  static const surveyPage10 = "survey_page10";
+
   //new
   static const videoReels = 'video_reels';
   static const settings = 'settings';

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:winner_trains_app/resources/app_assets.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
 import 'package:winner_trains_app/view/widgets/trainer/main_home_app_bar.dart';
+import 'package:winner_trains_app/viewModel/trainer_view_models/communites_card_view_model.dart';
 import 'package:winner_trains_app/viewModel/trainer_view_models/trainer_main_home_view_model.dart';
 import 'package:winner_trains_app/utils/routes/route_name.dart';
 
@@ -13,7 +14,7 @@ class ComYourStressRelated extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomindex = Provider.of<TrainerMainHomeViewModel>(context);
+    final viewModel = Provider.of<CommunitesCardViewModel>(context);
 
     return Container(
       decoration: BoxDecoration(
@@ -26,6 +27,10 @@ class ComYourStressRelated extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: MainHomeAppBar(
           title: "Community",
+          onBackTap: () {
+            Navigator.pop(context);
+            
+          },
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -43,7 +48,7 @@ class ComYourStressRelated extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _titleRow(),
+                    _titleRow(context),
                     10.verticalSpace,
                     Text(
                       "(Stress)",
@@ -81,11 +86,25 @@ class ComYourStressRelated extends StatelessWidget {
     );
   }
 
-  Widget _titleRow() {
+  Widget _titleRow(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Stress-Related", style: AppTextStyle.heading()),
+        Row(
+          children: [
+            Text("Stress-Related", style: AppTextStyle.heading()),
+            10.w.horizontalSpace,
+            GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.keyboard_arrow_down_outlined,
+                  color: Colors.grey,
+                  size: 30.sp,
+                )),
+          ],
+        ),
         Row(
           children: [
             Image.asset(

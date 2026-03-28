@@ -33,8 +33,8 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
             children: [
               CustomTabbar(
                   items: viewModel.items,
-                  height: 42.h,
-                  width: 126.w,
+                  height: 44.h,
+                  width: 128.w,
                   val: viewModel.selectedItem),
               25.h.verticalSpace,
               ValueListenableBuilder(
@@ -54,10 +54,14 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                           if (selectedTab == "Upcoming") {
                             return GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(context,
-                                    RoutesName.upcomingAppointments);
+                                Navigator.pushNamed(
+                                    context, RoutesName.upcomingAppointments);
                               },
                               child: AppointmentCard(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, RoutesName.upcomingAppointments);
+                                },
                                 buttonText: 'Upcoming',
                                 isButton: true,
                                 button: Padding(
@@ -116,10 +120,14 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                           } else if (selectedTab == "Ongoing") {
                             return GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(context,
-                                    RoutesName.ongoingAppointments);
+                                Navigator.pushNamed(
+                                    context, RoutesName.ongoingAppointments);
                               },
                               child: AppointmentCard(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, RoutesName.ongoingAppointments);
+                                },
                                 buttonText: 'Ongoing',
                                 isButton: true,
                                 button: Padding(
@@ -157,7 +165,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                                 backgroundColor = Colors.red.withOpacity(0.2);
                                 fontColor = Color(0xffE70000);
                                 width = 91.w;
-                                height = 33.h;
+                                height = 38.h;
 
                                 break;
                               case 1:
@@ -165,7 +173,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                                 backgroundColor = Color(0xffE7ECF2);
                                 fontColor = Color(0xff7386A2);
                                 width = 102.w;
-                                height = 40.h;
+                                height = 38.h;
 
                                 break;
                               default:
@@ -173,10 +181,20 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                                 backgroundColor = Colors.green.withOpacity(0.2);
                                 fontColor = Color(0xff3BAF2F);
                                 width = 98.w;
-                                height = 40.h;
+                                height = 38.h;
                             }
 
                             return AppointmentCard(
+                              onTap: () {
+                                index == 0
+                                    ? Navigator.pushNamed(context,
+                                        RoutesName.cancelledAppointment)
+                                    : index == 1
+                                        ? Navigator.pushNamed(context,
+                                            RoutesName.unAttendedAppointment)
+                                        : Navigator.pushNamed(context,
+                                            RoutesName.completedAppointment);
+                              },
                               isPast: true,
                               button: CustomButton(
                                 width: width,
@@ -188,18 +206,16 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                                 fontWeight: FontWeight.w400,
                                 fontsize: 14.sp,
                               ),
-                            ).inkWell(
-                              onTap: () {
-                                index == 0
-                                    ? Navigator.pushNamed(context,
-                                        RoutesName.cancelledAppointment)
-                                    : index == 1
-                                        ? Navigator.pushNamed(context,
-                                            RoutesName.unAttendedAppointment)
-                                        : Navigator.pushNamed(context,
-                                            RoutesName.completedAppointment);
-                              },
-                            );
+                            ).inkWell(onTap: () {
+                              index == 0
+                                  ? Navigator.pushNamed(
+                                      context, RoutesName.cancelledAppointment)
+                                  : index == 1
+                                      ? Navigator.pushNamed(context,
+                                          RoutesName.unAttendedAppointment)
+                                      : Navigator.pushNamed(context,
+                                          RoutesName.completedAppointment);
+                            });
                           }
                         });
                   }),

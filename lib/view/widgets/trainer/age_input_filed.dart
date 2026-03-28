@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winner_trains_app/utils/app_text_style.dart';
+import 'package:winner_trains_app/utils/extensions/custom_box_shadow.dart';
 
 import 'package:winner_trains_app/view/widgets/trainer/custom_date_picker.dart';
 import 'package:winner_trains_app/utils/app_colors.dart';
@@ -21,17 +22,11 @@ class AgeInputField extends StatelessWidget {
           SizedBox(height: 10.h),
           Container(
             decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: const Color(0xff2238500F),
-                  offset: Offset(0, 1),
-                  blurRadius: 10.r,
-                ),
-              ],
+              boxShadow: CustomShadows.defaultShadow
             ),
             child: TextField(
               controller: controller,
-              keyboardType: TextInputType.number,
+             
               // readOnly: true,
               style: AppTextStyle.body(),
               decoration: InputDecoration(
